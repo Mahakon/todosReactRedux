@@ -8,7 +8,7 @@ const todosReducer = (state = [], action) => {
                 ...state,
                 todos(undefined, action)
             ];
-        }break;
+        }
 
         case 'TOGGLE_TODOS': {
             return state.map(todosElement => todos(todosElement, action));
@@ -37,7 +37,7 @@ const todosReducer = (state = [], action) => {
 
         case 'MAKE_ALL_COMPLETED_TODOS': {
             return state.map(todosElement => todos(todosElement, action));
-        } break;
+        }
 
         case 'DELETE_ALL_COMPLETED_TODOS': {
             state = state.map(todosElement => todos(todosElement, action));

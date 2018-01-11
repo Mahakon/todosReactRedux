@@ -44,9 +44,6 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	//import { createStore } from 'redux';
-	//import appReducer from './modules/reducers/appReducer'
-	//import TodosItem from './componets/TodosItem';
 	var Redux = __webpack_require__(1);
 	var createStore = Redux.createStore;
 	var appReducer = __webpack_require__(23);
@@ -1335,10 +1332,6 @@
 /* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	//import {combineReducers} from 'redux';
-	//import todosReducer from './todosReducer';
-	//import filterReduser from './filterReducer';
-	
 	var Redux = __webpack_require__(1);
 	var combineReducers = Redux.combineReducers;
 	var todosReducer = __webpack_require__(24);
@@ -1355,7 +1348,6 @@
 /* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	//import todos from './todos';
 	var todos = __webpack_require__(25);
 	
 	const todosReducer = (state = [], action) => {
@@ -1512,9 +1504,6 @@
 /* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	//import { Component } from 'react';
-	//import addTodosAction from '../modules/actions/addTodosAction';
-	
 	var addTodosAction = __webpack_require__(28);
 	var makeAllCompletedTodosAction = __webpack_require__(29)
 	

@@ -1,6 +1,3 @@
-//import { Component } from 'react';
-//import addTodosAction from '../modules/actions/addTodosAction';
-
 var addTodosAction = require('../modules/actions/addTodosAction');
 var makeAllCompletedTodosAction = require('../modules/actions/makeAllCompletedTodosAction')
 

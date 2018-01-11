@@ -1,4 +1,3 @@
-//import todos from './todos';
 var todos = require('./todos');
 
 const todosReducer = (state = [], action) => {

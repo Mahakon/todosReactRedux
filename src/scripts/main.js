@@ -1,6 +1,3 @@
-//import { createStore } from 'redux';
-//import appReducer from './modules/reducers/appReducer'
-//import TodosItem from './componets/TodosItem';
 var Redux = require('redux');
 var createStore = Redux.createStore;
 var appReducer = require('./modules/reducers/appReducer');

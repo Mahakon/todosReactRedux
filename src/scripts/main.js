@@ -7,25 +7,9 @@ var TodosBar = require('./componets/todos-bar/TodosBar');
 var ReactDOM = require('react-dom');
 var React = require('react');
 
-const updateStateOfViewTodosBar = (num) => {
-    let todosBar = document.querySelector(".todos-actions-bar");
-
-    if (num === 0) {
-        todosBar.style.display = "none";
-    } else {
-        todosBar.style.display = "flex";
-    }
-}
-
-function updateStateOfViewSellectAllButton(num) {
-    let todosButton = document.querySelector(".todos-add_select-all");
-
-    if (num === 0) {
-        todosButton.style.visibility = "hidden";
-    } else {
-        todosButton.style.visibility = "visible";
-    }
-}
+const updateStateOfViewTodosBar = require('./utils/updateStateOfViewTodosBar');
+const updateStateOfViewSellectAllButton = require('./utils/updateStateOfViewSellectAllButton');
+const updateFocusFilter = require('./utils/updateFocusFilter');
 
 const init = () => {
     function render() {
@@ -40,6 +24,7 @@ const init = () => {
         );
         updateStateOfViewTodosBar(store.getState().todosArray.length);
         updateStateOfViewSellectAllButton(store.getState().todosArray.length);
+        updateFocusFilter(store.getState().currentFilter);
     }
 
     const store = createStore(
@@ -58,4 +43,3 @@ const init = () => {
 }
 
 document.addEventListener('DOMContentLoaded', init);
-

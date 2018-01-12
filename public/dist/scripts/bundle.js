@@ -53,25 +53,9 @@
 	var ReactDOM = __webpack_require__(41);
 	var React = __webpack_require__(31);
 	
-	const updateStateOfViewTodosBar = (num) => {
-	    let todosBar = document.querySelector(".todos-actions-bar");
-	
-	    if (num === 0) {
-	        todosBar.style.display = "none";
-	    } else {
-	        todosBar.style.display = "flex";
-	    }
-	}
-	
-	function updateStateOfViewSellectAllButton(num) {
-	    let todosButton = document.querySelector(".todos-add_select-all");
-	
-	    if (num === 0) {
-	        todosButton.style.visibility = "hidden";
-	    } else {
-	        todosButton.style.visibility = "visible";
-	    }
-	}
+	const updateStateOfViewTodosBar = __webpack_require__(65);
+	const updateStateOfViewSellectAllButton = __webpack_require__(66);
+	const updateFocusFilter = __webpack_require__(67);
 	
 	const init = () => {
 	    function render() {
@@ -86,6 +70,7 @@
 	        );
 	        updateStateOfViewTodosBar(store.getState().todosArray.length);
 	        updateStateOfViewSellectAllButton(store.getState().todosArray.length);
+	        updateFocusFilter(store.getState().currentFilter);
 	    }
 	
 	    const store = createStore(
@@ -104,8 +89,6 @@
 	}
 	
 	document.addEventListener('DOMContentLoaded', init);
-	
-
 
 /***/ }),
 /* 1 */
@@ -19999,6 +19982,58 @@
 	}
 	
 	module.exports = TodosCounter;
+
+/***/ }),
+/* 65 */
+/***/ (function(module, exports) {
+
+	const updateStateOfViewTodosBar = (num) => {
+	    let todosBar = document.querySelector(".todos-actions-bar");
+	
+	    if (num === 0) {
+	        todosBar.style.display = "none";
+	    } else {
+	        todosBar.style.display = "flex";
+	    }
+	}
+	
+	module.exports = updateStateOfViewTodosBar;
+
+/***/ }),
+/* 66 */
+/***/ (function(module, exports) {
+
+	function updateStateOfViewSellectAllButton(num) {
+	    let todosButton = document.querySelector(".todos-add_select-all");
+	
+	    if (num === 0) {
+	        todosButton.style.visibility = "hidden";
+	    } else {
+	        todosButton.style.visibility = "visible";
+	    }
+	}
+	
+	module.exports = updateStateOfViewSellectAllButton;
+
+/***/ }),
+/* 67 */
+/***/ (function(module, exports) {
+
+	const FILTER_ALL = "todos-filter __all";
+	const FILTER_COMPLETED = "todos-filter __completed";
+	const FILTER_ACTIVE = "todos-filter __active";
+	
+	const updateFocusFilter = (filterClassName) => {
+	    document.getElementsByClassName(FILTER_ALL)[0].removeAttribute("style");
+	    document.getElementsByClassName(FILTER_COMPLETED)[0].removeAttribute("style");
+	    document.getElementsByClassName(FILTER_ACTIVE)[0].removeAttribute("style");
+	
+	    let filterElement = document.getElementsByClassName(filterClassName)[0];
+	    filterElement.style.border = "2px solid #efefef";
+	    filterElement.style.borderRadius = "2px";
+	}
+	
+	module.exports = updateFocusFilter;
 
 /***/ })
 /******/ ]);

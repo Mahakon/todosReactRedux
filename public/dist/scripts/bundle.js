@@ -1360,9 +1360,15 @@
 	                state.splice(index, 1);
 	            }
 	
-	            for (let i = 0; i < state.length; i++) {
-	                state[i].id = i;
-	            }
+	
+	            state = state.map((todosElement, index) => {
+	                return {
+	                    id: index,
+	                    text: todosElement.text,
+	                    completed: todosElement.completed
+	                }
+	            });
+	
 	
 	            return state;
 	        }
@@ -1387,9 +1393,13 @@
 	                size--;
 	            }
 	
-	            for (let i = 0; i < state.length; i++) {
-	                state[i].id = i;
-	            }
+	            state = state.map((todosElement, index) => {
+	                return {
+	                    id: index,
+	                    text: todosElement.text,
+	                    completed: todosElement.completed
+	                }
+	            });
 	
 	            return state;
 	        }
@@ -1414,7 +1424,7 @@
 	                text: action.text,
 	                completed: false
 	            }
-	        } break;
+	        }
 	
 	        case 'TOGGLE_TODOS': {
 	            if (state.id !== action.id){
@@ -1426,7 +1436,7 @@
 	                text: state.text,
 	                completed: !state.completed
 	            };
-	        } break;
+	        }
 	
 	        case 'DELETE_TODOS': {
 	            if (state.id !== action.id){
@@ -1438,7 +1448,7 @@
 	                text: state.text,
 	                completed: state.completed
 	            }
-	        } break;
+	        }
 	
 	        case 'MAKE_ALL_COMPLETED_TODOS': {
 	            return {
@@ -1446,7 +1456,7 @@
 	                text: state.text,
 	                completed: true
 	            }
-	        } break;
+	        }
 	
 	        case 'DELETE_ALL_COMPLETED_TODOS': {
 	            if (!state.completed){
@@ -1458,7 +1468,7 @@
 	                text: state.text,
 	                completed: state.completed
 	            }
-	        } break;
+	        }
 	
 	    }
 	}

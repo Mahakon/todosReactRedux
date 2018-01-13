@@ -27,9 +27,15 @@ const todosReducer = (state = [], action) => {
                 state.splice(index, 1);
             }
 
-            for (let i = 0; i < state.length; i++) {
-                state[i].id = i;
-            }
+
+            state = state.map((todosElement, index) => {
+                return {
+                    id: index,
+                    text: todosElement.text,
+                    completed: todosElement.completed
+                }
+            });
+
 
             return state;
         }
@@ -54,9 +60,13 @@ const todosReducer = (state = [], action) => {
                 size--;
             }
 
-            for (let i = 0; i < state.length; i++) {
-                state[i].id = i;
-            }
+            state = state.map((todosElement, index) => {
+                return {
+                    id: index,
+                    text: todosElement.text,
+                    completed: todosElement.completed
+                }
+            });
 
             return state;
         }

@@ -6,7 +6,7 @@ const todos = (state, action) => {
                 text: action.text,
                 completed: false
             }
-        } break;
+        }
 
         case 'TOGGLE_TODOS': {
             if (state.id !== action.id){
@@ -18,7 +18,7 @@ const todos = (state, action) => {
                 text: state.text,
                 completed: !state.completed
             };
-        } break;
+        }
 
         case 'DELETE_TODOS': {
             if (state.id !== action.id){
@@ -30,7 +30,7 @@ const todos = (state, action) => {
                 text: state.text,
                 completed: state.completed
             }
-        } break;
+        }
 
         case 'MAKE_ALL_COMPLETED_TODOS': {
             return {
@@ -38,7 +38,7 @@ const todos = (state, action) => {
                 text: state.text,
                 completed: true
             }
-        } break;
+        }
 
         case 'DELETE_ALL_COMPLETED_TODOS': {
             if (!state.completed){
@@ -50,7 +50,7 @@ const todos = (state, action) => {
                 text: state.text,
                 completed: state.completed
             }
-        } break;
+        }
 
     }
 }

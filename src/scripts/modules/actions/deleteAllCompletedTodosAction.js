@@ -1,7 +1,9 @@
+import {DELETE_ALL_COMPLETED_TODOS} from '../../constants/ActionTypes'
+
 const deleteAllCompletedTodosAction = () => {
     return {
-        type: 'DELETE_ALL_COMPLETED_TODOS',
+        type: DELETE_ALL_COMPLETED_TODOS,
     }
-}
+};
 
-module.exports = deleteAllCompletedTodosAction;
+export default deleteAllCompletedTodosAction

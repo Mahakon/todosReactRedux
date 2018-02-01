@@ -1,38 +1,108 @@
-var setFilterTodosAction = require(
+import React from 'react'
+import ReactDOM from 'react-dom'
+import setFilterTodosAction from
     '../../modules/actions/setFilterTodosAction'
-);
-const TODOS_FILTERS_CLASS = ".todos-filters";
-const FILTER_ALL = "todos-filter __all";
-const FILTER_COMPLETED = "todos-filter __completed";
-const FILTER_ACTIVE = "todos-filter __active";
+import {FILTER_COMPLETED, FILTER_ACTIVE, FILTER_ALL} from '../../constants/FilterTypes'
 
-class TodosFilters {
-    constructor(store) {
-        this.store = store;
-        this.filters = document.querySelector(
-            TODOS_FILTERS_CLASS);
+export default class TodosFilters extends React.Component{
+    constructor(props) {
+        super(props);
+        this.handlerClick = this.handlerClick.bind(this);
+        this.changeFilter = this.changeFilter.bind(this);
+        this.setFocusOnCurrentFilter = this.setFocusOnCurrentFilter.bind(this);
+    }
 
-        this.filters.addEventListener('click', (event) => {
-            switch (event.target.className) {
-                case FILTER_ALL : {
-                    this.changeFilter(FILTER_ALL);
-                } break;
+    handlerClick(event) {
+        switch (event.target.className) {
+            case FILTER_ALL : {
+                this.changeFilter(FILTER_ALL);
+            } break;
 
-                case FILTER_ACTIVE: {
-                    this.changeFilter(FILTER_ACTIVE);
-                } break;
+            case FILTER_ACTIVE: {
+                this.changeFilter(FILTER_ACTIVE);
+            } break;
 
-                case FILTER_COMPLETED: {
-                    this.changeFilter(FILTER_COMPLETED);
-                } break;
-            }
+            case FILTER_COMPLETED: {
+                this.changeFilter(FILTER_COMPLETED);
+            } break;
+        }
+    }
 
-        });
+    setFocusOnCurrentFilter(currentFilter, choosenFilter) {
+        switch (choosenFilter) {
+            case FILTER_ALL: {
+                if (currentFilter.localeCompare(FILTER_ALL) === 0) {
+                    return {
+                        border: '2px solid #efefef',
+                        borderRadius: '2px'
+                    }
+                } else {
+                    return {
+                        border: '2px solid #fff',
+                        borderRadius: '2px'
+                    }
+                }
+            } break;
+
+            case (FILTER_ACTIVE): {
+
+                if (currentFilter.localeCompare(FILTER_ACTIVE) === 0) {
+                    return {
+                        border: '2px solid #efefef',
+                        borderRadius: '2px'
+                    }
+                } else {
+                    return {
+                        border: '2px solid #fff',
+                        borderRadius: '2px'
+                    }
+                }
+            } break;
+
+            case (FILTER_COMPLETED): {
+                if (currentFilter.localeCompare(FILTER_COMPLETED) === 0) {
+                    return {
+                        border: '2px solid #efefef',
+                        borderRadius: '2px'
+                    }
+                } else {
+                    return {
+                        border: '2px solid #fff',
+                        borderRadius: '2px'
+                    }
+                }
+            } break;
+        }
+
+
+    }
+
+    componentDidMount() {
+        ReactDOM.findDOMNode(this).addEventListener('click', this.handlerClick);
+    }
+
+    componentWillUnmount() {
+        ReactDOM.findDOMNode(this).removeEventListener('click', this.handlerClick);
     }
 
     changeFilter(filterName) {
-        this.store.dispatch(setFilterTodosAction(filterName))
+        this.props.store.dispatch(setFilterTodosAction(filterName))
     }
-}
 
-module.exports = TodosFilters;
+    render() {
+        return (
+            <div className="todos-filters">
+                <button className="todos-filter __all" aria-label="show all items" style={this.setFocusOnCurrentFilter(this.props.store.getState().currentFilter, FILTER_ALL)}>
+                    All
+                </button>
+                <button className="todos-filter __active" aria-label="show undone items" style={this.setFocusOnCurrentFilter(this.props.store.getState().currentFilter, FILTER_ACTIVE)}>
+                    Active
+                </button>
+                <button className="todos-filter __completed" aria-label="show done items" style={this.setFocusOnCurrentFilter(this.props.store.getState().currentFilter, FILTER_COMPLETED)}>
+                    Completed
+                </button>
+            </div>
+        )
+    }
+
+}

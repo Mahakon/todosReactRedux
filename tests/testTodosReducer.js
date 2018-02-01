@@ -66,7 +66,7 @@ const testToggleTodos = () => {
         reducer(stateBefore, action)
     ).toEqual(stateAfter);
 
-}
+};
 
 const testDeleteTodos = () => {
     const stateBefore = [
@@ -103,57 +103,8 @@ const testDeleteTodos = () => {
         reducer(stateBefore, action)
     ).toEqual(stateAfter);
 
-}
+};
 
-const testMakeAllCompletedTodos = () => {
-    const stateBefore = [
-        {
-            id: 0,
-            text: 'first',
-            completed: false
-        },
-        {
-            id: 1,
-            text: 'second',
-            completed: true
-        },
-        {
-            id: 2,
-            text: 'third',
-            completed: false
-        }
-    ];
-    const action = {
-        type: 'MAKE_ALL_COMPLETED_TODOS',
-        id: 0,
-    };
-    const stateAfter = [
-        {
-            id: 0,
-            text: 'first',
-            completed: true
-        },
-        {
-            id: 1,
-            text: 'second',
-            completed: true
-        },
-        {
-            id: 2,
-            text: 'third',
-            completed: true
-        }
-    ];
-
-
-    deepFreeze(stateBefore);
-    deepFreeze(action);
-
-    expect(
-        reducer(stateBefore, action)
-    ).toEqual(stateAfter);
-
-}
 
 const testDeleteAllCompletedTodos = () => {
     const stateBefore = [
@@ -213,7 +164,7 @@ const testDeleteAllCompletedTodos = () => {
         reducer(stateBefore, action)
     ).toEqual(stateAfter);
 
-}
+};
 
 const testDefaultTodos = () => {
     const stateBefore = [];
@@ -232,7 +183,57 @@ const testDefaultTodos = () => {
         reducer(stateBefore, action)
     ).toEqual(stateAfter);
 
-}
+};
+
+const testMakeAllCompletedTodos = () => {
+    const stateBefore = [
+        {
+            id: 0,
+            text: 'first',
+            completed: false
+        },
+        {
+            id: 1,
+            text: 'second',
+            completed: true
+        },
+        {
+            id: 2,
+            text: 'third',
+            completed: false
+        }
+    ];
+    const action = {
+        type: 'MAKE_ALL_COMPLETED_TODOS',
+        id: 0,
+    };
+    const stateAfter = [
+        {
+            id: 0,
+            text: 'first',
+            completed: true
+        },
+        {
+            id: 1,
+            text: 'second',
+            completed: true
+        },
+        {
+            id: 2,
+            text: 'third',
+            completed: true
+        }
+    ];
+
+
+    deepFreeze(stateBefore);
+    deepFreeze(action);
+
+    expect(
+        reducer(stateBefore, action)
+    ).toEqual(stateAfter);
+
+};
 
 
 describe('testreducer', () => {
@@ -240,20 +241,25 @@ describe('testreducer', () => {
     it('should be new state with new elem', () => {
         testAddTodos()
     });
+
     it('should be new state with 1 has change completed', () => {
         testToggleTodos()
     });
+
     it('should be new state without one', () => {
         testDeleteTodos()
     });
-    it('all todos should have completed: true', () => {
-        testMakeAllCompletedTodos()
-    })
+
     it ('delete completed', () => {
         testDeleteAllCompletedTodos();
-    })
+    });
+
     it ('test default', () => {
         testDefaultTodos()
+    });
+
+    it ('test make all completed', () => {
+        testMakeAllCompletedTodos()
     })
 
 });

@@ -1,63 +1,51 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var Component = React.Component;
-var toggleTodosAction = require('../../modules/actions/toggleTodosAction');
-var deleteTodosAction = require('../../modules/actions/deteleTodosAction');
-var TodosItem = require('./TodosItem')
+import React from 'react'
+import ReactDOM from 'react-dom'
+import toggleTodosAction from '../../modules/actions/toggleTodosAction'
+import deleteTodosAction from '../../modules/actions/deteleTodosAction'
+import TodosItem from './TodosItem'
 
-const TODOS_LIST = ".todos-list";
 const TODOS_DELETE_BUTTON_CLASS_NAME = "todos-item_delete";
 const TODOS_CHECKBOX_CLASS_NAME = ["todos-item_done-mark", "todos-item_undone-mark"];
 
-var totalNumOfTodosELements = 0;
 class TodosList extends React.Component {
-    constructor(store) {
-        super();
-        this.todoList = document.querySelector(TODOS_LIST);
-        this.store = store;
-        this.todosItem = new TodosItem();
-
-        this.todoList.addEventListener('click', (event) => {
-            switch (event.target.className) {
-                case TODOS_CHECKBOX_CLASS_NAME[0]:
-                case TODOS_CHECKBOX_CLASS_NAME[1]: {
-                    store.dispatch(toggleTodosAction(this.getIndex(event.target)));
-                } break;
-
-                case TODOS_DELETE_BUTTON_CLASS_NAME: {
-                    store.dispatch(deleteTodosAction(this.getIndex(event.target)))
-                } break;
-            }
-        });
-
+    constructor(props) {
+        super(props);
+        this.handlerClick = this.handlerClick.bind(this);
     }
 
-    getIndex(currentItem) {
-        var items = this.todoList.childNodes[0].childNodes;
-        currentItem = currentItem.parentNode.parentNode;
+    handlerClick(event) {
+        switch (event.target.className) {
+            case TODOS_CHECKBOX_CLASS_NAME[0]:
+            case TODOS_CHECKBOX_CLASS_NAME[1]: {
+                this.props.store.dispatch(toggleTodosAction(event.target.id))
+            } break;
 
-        for (let i = 0; i < items.length; i++) {
-            if (items[i] === currentItem) {
-                return i;
-            }
+            case TODOS_DELETE_BUTTON_CLASS_NAME: {
+                this.props.store.dispatch(deleteTodosAction(event.target.id))
+            } break;
         }
     }
 
+    componentDidMount() {
+        ReactDOM.findDOMNode(this).addEventListener('click', this.handlerClick);
+    }
+
+    componentWillUnmount() {
+        ReactDOM.findDOMNode(this).removeEventListener('click', this.handlerClick);
+    }
+
     render() {
-        console.log(this.store.getState());
-        return React.createElement(
-            "div",
-
-            null,
-
-            this.store.getState().todosArray.map((value, i) =>
-                this.todosItem.renderTodosItem(
-                    value,
-                    i,
-                    this.store.getState().currentFilter
-                )
-            )
-
+        return (
+            <div className="todos-list">
+                {this.props.store.getState().todosArray.map((todosElement) =>
+                    <TodosItem key={todosElement.id}
+                               completed={todosElement.completed}
+                               currentFilter={this.props.store.getState().currentFilter}
+                               value={todosElement.text}
+                               id={todosElement.id}
+                    />
+                )}
+            </div>
         )
     }
 

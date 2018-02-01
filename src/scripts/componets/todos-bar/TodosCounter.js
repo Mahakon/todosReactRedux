@@ -1,18 +1,16 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
-var Component = React.Component;
+import React from 'react'
 
-class TodosCounter extends Component{
-    constructor(store) {
-        super();
-        this.store = store;
+export default class TodosCounter extends React.Component {
+    constructor(props) {
+        super(props);
+        this.getNumOfActiveItems = this.getNumOfActiveItems.bind(this);
     }
 
     getNumOfActiveItems() {
         let num = 0;
 
-        for (let i = 0; i < this.store.getState().todosArray.length; i++) {
-            if (!this.store.getState().todosArray[i].completed) {
+        for (let i = 0; i < this.props.todosArray.length; i++) {
+            if (!this.props.todosArray[i].completed) {
                 num++;
             }
         }
@@ -21,15 +19,11 @@ class TodosCounter extends Component{
     }
 
     render() {
-        return React.createElement(
-            "div",
-
-            null,
-
-            this.getNumOfActiveItems()
+        return (
+            <div className="todos-actions-bar_counter-undone" aria-label="number of undone items">
+                {this.getNumOfActiveItems()}
+            </div>
         )
     }
 
 }
-
-module.exports = TodosCounter;

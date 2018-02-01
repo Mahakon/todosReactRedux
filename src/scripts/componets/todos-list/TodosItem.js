@@ -1,134 +1,92 @@
-var React = require('react');
-var Component = React.Component;
-const FILTER_ALL = "todos-filter __all";
-const FILTER_COMPLETED = "todos-filter __completed";
-const FILTER_ACTIVE = "todos-filter __active";
+import React from 'react'
+import {FILTER_ALL, FILTER_ACTIVE, FILTER_COMPLETED}
+                            from '../../constants/FilterTypes'
 
-class TodosItem extends Component{
-    getClassName(completed, type = "item") {
+export default class TodosItem extends React.Component {
+    constructor(props) {
+        super(props);
+        this.setClassName = this.setClassName.bind(this);
+        this.setVisibility = this.setVisibility.bind(this);
+    }
+
+    setClassName(completed, type = 'item') {
         switch (type) {
-            case "mark-w": {
+            case 'mark-w': {
                 return (!completed) ?
-                    "todos-item_undone-mark-w" :
-                    "todos-item_done-mark-w"
+                    'todos-item_undone-mark-w' :
+                    'todos-item_done-mark-w'
             } break;
 
-            case "mark-icon": {
+            case 'mark-icon': {
                 return (!completed) ?
-                    "todos-item_undone-mark-icon" :
-                    "todos-item_done-mark-icon"
+                    'todos-item_undone-mark-icon' :
+                    'todos-item_done-mark-icon'
             } break;
 
-            case "mark": {
+            case 'mark': {
                 return (!completed) ?
-                    "todos-item_undone-mark" :
-                    "todos-item_done-mark"
+                    'todos-item_undone-mark' :
+                    'todos-item_done-mark'
             } break;
 
             default: {
                 return (!completed) ?
-                    "todos-item" :
-                    "todos-item __done"
+                    'todos-item' :
+                    'todos-item __done'
             }
         }
     }
 
-    getVisibality(currentFilter, completed) {
+    setVisibility(currentFilter, completed) {
         switch (currentFilter) {
             case FILTER_ALL: {
-                return "block";
+                return {
+                    display: 'block'
+                };
             } break;
 
             case FILTER_ACTIVE: {
                 return (completed) ?
-                    "none" : "block"
+                    {
+                        display: "none"
+                    } :
+                    {
+                        display: "block"
+                    }
             } break;
 
             case FILTER_COMPLETED : {
                 return (!completed) ?
-                    "none" : "block"
+                    {
+                        display: "none"
+                    } :
+                    {
+                        display: "block"
+                    }
             } break;
         }
     }
 
-    renderTodosItem(value, key, currentFilter) {
-        return React.createElement(
-            "div",
+    render() {
+        return (
+            <div className={this.setClassName(this.props.completed)} style={this.setVisibility(this.props.currentFilter, this.props.completed)}>
 
-            {
-                className: this.getClassName(value.completed),
-                key: key,
-                style: {
-                    display: this.getVisibality(currentFilter, value.completed)
-                }
-            },
+                <div className={this.setClassName(this.props.completed, 'mark-w')}>
+                    <div className={this.setClassName(this.props.completed, 'mark-icon')}></div>
+                    <input className={this.setClassName(this.props.completed, 'mark')} aria-label="mark undone" type="checkbox" id={this.props.id}/>
+                </div>
 
-            React.createElement(
-                "div",
+                <div className="todos-item_delete-w">
+                    <div className="todos-item_delete_icon"></div>
+                    <button className="todos-item_delete" aria-label="delete item" id={this.props.id}></button>
+                </div>
 
-                {className: this.getClassName(value.completed, "mark-w")},
+                <div className="todos-item_name-w">
+                    <textarea className="todos-item_name" value={this.props.value} readOnly="readOnly">
+                    </textarea>
+                </div>
 
-                React.createElement(
-                    "div",
-
-                    {className: this.getClassName(value.completed, "mark-icon")},
-
-                    null
-                ),
-
-                React.createElement(
-                    "input",
-                    {
-                        className: this.getClassName(value.completed, "mark"),
-                        type: "checkbox"
-                    },
-
-                    null
-                )
-            ),
-
-            React.createElement(
-                "div",
-
-                {className: "todos-item_delete-w"},
-
-                React.createElement(
-                    "div",
-
-                    {className: "todos-item_delete_icon"},
-
-                    null
-                ),
-
-                React.createElement(
-                    "button",
-
-                    {className: "todos-item_delete"},
-
-                    null
-                )
-            ),
-
-            React.createElement(
-                "div",
-
-                {className: "todos-item_name-w"},
-
-                React.createElement(
-                    "textarea",
-
-                    {
-                        className: "todos-item_name",
-                        value: value.text,
-                        readOnly: "readOnly",
-                    },
-
-                    null
-                )
-            )
+            </div>
         )
     }
-
 }
-
-module.exports = TodosItem;

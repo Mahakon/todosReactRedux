@@ -1,24 +1,38 @@
-var deleteAllCompletedTodosAction = require(
-    '../../modules/actions/deleteAllCompletedTodosAction'
-);
-const TodosFilters = require('./TodosFilters');
-const TodosCounter = require('./TodosCounter');
-const DELETE_ALL_COMPLETED_BUTTON_CLASS = ".todos-actions-bar_delete-done";
+import React from 'react'
+import TodosDeleteAllCompletedButton from './TodosDeleteAllCompletedButton'
+import TodosFilters from './TodosFilters'
+import TodosCounter from './TodosCounter'
 
-class TodosBar {
-    constructor(store) {
-        this.deleteAllComButton = document.querySelector(
-                                    DELETE_ALL_COMPLETED_BUTTON_CLASS);
+export default class TodosBar extends React.Component{
+    constructor(props) {
+        super(props);
+        this.setVisibility = this.setVisibility.bind(this);
+    }
 
-        new TodosFilters(store);
-        this.todosCounter = new TodosCounter(store);
+    setVisibility() {
+        if (this.props.store.getState().todosArray.length == 0) {
+            return {
+                display: "none"
+            }
+        }
 
-        this.deleteAllComButton.addEventListener('click', (event) => {
-            store.dispatch(deleteAllCompletedTodosAction());
-        });
+        return {
+            display: "flex"
+        }
+    }
 
+    render() {
+        return (
+            <div className="todos-actions-bar" style={this.setVisibility()}>
+
+                <TodosCounter todosArray={this.props.store.getState().todosArray}/>
+
+                <TodosFilters store={this.props.store}/>
+
+                <TodosDeleteAllCompletedButton store={this.props.store}/>
+
+            </div>
+        )
     }
 
 }
-
-module.exports = TodosBar;

@@ -3,16 +3,8 @@
   "description": "todos with react",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel src/scripts -d es5tests --presets es2015",
-    "watch": "babel src/scripts -d es5tests --presets es2015 -w",
-    "start": "gulp",
-    "babel": {
-      "presets": [
-        "env",
-        "react"
-      ]
-    }
+    "test": "mocha --compilers js:babel-core/register ./tests/*.js",
+    "start": "gulp"
   },
   "author": "maha",
   "license": "MIT",
@@ -38,7 +30,9 @@
     "gulp-css-rebase-urls": "0.0.5",
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.5.1",
+    "gulp-util": "latest",
     "mocha": "^3.5.3",
+    "node-notifier": "^5.2.1",
     "transform-runtime": "0.0.0",
     "webpack": "^3.10.0"
   },

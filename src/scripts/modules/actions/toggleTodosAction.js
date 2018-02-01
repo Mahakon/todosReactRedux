@@ -1,8 +1,10 @@
+import {TOGGLE_TODOS} from '../../constants/ActionTypes'
+
 const toggleTodosAction = (id) => {
     return {
-        type: 'TOGGLE_TODOS',
+        type: TOGGLE_TODOS,
         id: id
     }
-}
+};
 
-module.exports = toggleTodosAction;
+export default toggleTodosAction

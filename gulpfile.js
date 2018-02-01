@@ -4,8 +4,7 @@ const sourcemaps = require('gulp-sourcemaps');
 const clean = require('gulp-clean');
 const urlAdjuster = require('gulp-css-url-adjuster');
 const gulpIf = require('gulp-if');
-const webpack = require('gulp-webpack');
-
+const webpack = require('webpack-stream');
 
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
 
@@ -57,13 +56,12 @@ gulp.src('./public/dist/scripts', {read: false})
 gulp.task('webpack', () =>
 gulp.src('./src/scripts/main.js')
     .pipe(webpack(require('./webpack.config.js')))
-    .pipe(gulp.dest('public/dist/scripts/'))
+    .pipe(gulp.dest('public/dist/scripts'))
 );
 
 gulp.task('webpack:watch', ['webpack'], () =>
 gulp.watch('./src/scripts/**/*.js', ['scripts-clean-dist', 'webpack'])
 );
-
 
 // common
 gulp.task('build', ['styles-clean-dist', 'sass',

@@ -1,5 +1,4 @@
 import {combineReducers} from 'redux'
-import todosReducer from './todosReducer'
 import TodosPoolReducers from './todos-reducers/TodosPoolReducers'
 import AddTodosReducer from './todos-reducers/base-reducers/AddTodosReducer'
 import ToggleTodosReducer from './todos-reducers/base-reducers/ToggleTodosReducer'

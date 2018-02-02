@@ -1761,8 +1761,6 @@ var init = function init() {
     _reactDom.default.render(_react.default.createElement(_TodosContainer.default, {
       store: store
     }), document.querySelector('.todos-container'));
-
-    console.log(store.getState());
   }
 
   var store = (0, _redux.createStore)(_appReducer.default, localStorage['redux-store'] ? JSON.parse(localStorage['redux-store']) : {});
@@ -20579,7 +20577,7 @@ function (_React$Component) {
         className: this.setClassName(this.props.completed),
         style: this.setVisibility(this.props.currentFilter, this.props.completed)
       }, _react.default.createElement("div", {
-        className: this.setClassName(this.props.completed, 'mark-w')
+        className: this.setClassName(this.props.completed, 'mark-w') + " todos-item_belonging-checkbox"
       }, _react.default.createElement("div", {
         className: this.setClassName(this.props.completed, 'mark-icon')
       }), _react.default.createElement("input", {

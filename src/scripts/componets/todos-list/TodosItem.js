@@ -71,7 +71,7 @@ export default class TodosItem extends React.Component {
         return (
             <div className={this.setClassName(this.props.completed)} style={this.setVisibility(this.props.currentFilter, this.props.completed)}>
 
-                <div className={this.setClassName(this.props.completed, 'mark-w')}>
+                <div className={this.setClassName(this.props.completed, 'mark-w') + " todos-item_belonging-checkbox"}>
                     <div className={this.setClassName(this.props.completed, 'mark-icon')}></div>
                     <input className={this.setClassName(this.props.completed, 'mark')} aria-label="mark undone" type="checkbox" id={this.props.id}/>
                 </div>

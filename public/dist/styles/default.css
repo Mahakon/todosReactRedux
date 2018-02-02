@@ -28,7 +28,6 @@ header {
   padding: 0;
   margin: 12px;
   border-radius: 4em;
-  float: left;
   position: relative;
   opacity: 1;
 }
@@ -279,6 +278,10 @@ body {
 
 .__done > .todos-item_name-w > .todos-item_name {
   text-decoration: line-through;
+}
+
+.todos-item_belonging-checkbox {
+  float: left;
 }
 
 /*DELETE BUTTOM*/

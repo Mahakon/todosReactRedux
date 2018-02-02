@@ -11,7 +11,6 @@ const init = () => {
             <TodosContainer store={store}/>,
             document.querySelector('.todos-container')
         )
-        console.log(store.getState())
     }
 
     const store = createStore(

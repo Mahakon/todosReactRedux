@@ -1,15 +1,15 @@
 module.exports = function (wallaby) {
     return {
         files: [
-            './src/scripts/**/*.js'
+            './src/scripts/**/*.js?(x)'
         ],
 
         tests: [
-            './tests/**/*.js'
+            './tests/**/*.js?(x)'
         ],
 
         setup: function () {
-            global.expect = require('chai').expect;
+            global.expect = require('mocha').expect;
         },
 
         env: {
@@ -18,7 +18,7 @@ module.exports = function (wallaby) {
         },
 
         compilers: {
-            '**/*.js': wallaby.compilers.babel()
+            '**/*.js?(x)': wallaby.compilers.babel()
         }
     };
 };

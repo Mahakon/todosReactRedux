@@ -20366,13 +20366,13 @@ function (_React$Component) {
         case TODOS_CHECKBOX_CLASS_NAME[0]:
         case TODOS_CHECKBOX_CLASS_NAME[1]:
           {
-            this.props.store.dispatch((0, _toggleTodosAction.default)(event.target.id));
+            this.props.store.dispatch((0, _toggleTodosAction.default)(event.target.parentNode.parentNode.id));
           }
           break;
 
         case TODOS_DELETE_BUTTON_CLASS_NAME:
           {
-            this.props.store.dispatch((0, _deteleTodosAction.default)(event.target.id));
+            this.props.store.dispatch((0, _deteleTodosAction.default)(event.target.parentNode.parentNode.id));
           }
           break;
       }
@@ -20575,7 +20575,8 @@ function (_React$Component) {
     value: function render() {
       return _react.default.createElement("div", {
         className: this.setClassName(this.props.completed),
-        style: this.setVisibility(this.props.currentFilter, this.props.completed)
+        style: this.setVisibility(this.props.currentFilter, this.props.completed),
+        id: this.props.id
       }, _react.default.createElement("div", {
         className: this.setClassName(this.props.completed, 'mark-w') + " todos-item_belonging-checkbox"
       }, _react.default.createElement("div", {
@@ -20583,16 +20584,14 @@ function (_React$Component) {
       }), _react.default.createElement("input", {
         className: this.setClassName(this.props.completed, 'mark'),
         "aria-label": "mark undone",
-        type: "checkbox",
-        id: this.props.id
+        type: "checkbox"
       })), _react.default.createElement("div", {
         className: "todos-item_delete-w"
       }, _react.default.createElement("div", {
         className: "todos-item_delete_icon"
       }), _react.default.createElement("button", {
         className: "todos-item_delete",
-        "aria-label": "delete item",
-        id: this.props.id
+        "aria-label": "delete item"
       })), _react.default.createElement("div", {
         className: "todos-item_name-w"
       }, _react.default.createElement("textarea", {

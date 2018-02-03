@@ -17,11 +17,11 @@ class TodosList extends React.Component {
         switch (event.target.className) {
             case TODOS_CHECKBOX_CLASS_NAME[0]:
             case TODOS_CHECKBOX_CLASS_NAME[1]: {
-                this.props.store.dispatch(toggleTodosAction(event.target.id))
+                this.props.store.dispatch(toggleTodosAction(event.target.parentNode.parentNode.id))
             } break;
 
             case TODOS_DELETE_BUTTON_CLASS_NAME: {
-                this.props.store.dispatch(deleteTodosAction(event.target.id))
+                this.props.store.dispatch(deleteTodosAction(event.target.parentNode.parentNode.id))
             } break;
         }
     }

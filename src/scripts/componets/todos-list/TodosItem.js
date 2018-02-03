@@ -69,16 +69,16 @@ export default class TodosItem extends React.Component {
 
     render() {
         return (
-            <div className={this.setClassName(this.props.completed)} style={this.setVisibility(this.props.currentFilter, this.props.completed)}>
+            <div className={this.setClassName(this.props.completed)} style={this.setVisibility(this.props.currentFilter, this.props.completed)} id={this.props.id}>
 
                 <div className={this.setClassName(this.props.completed, 'mark-w') + " todos-item_belonging-checkbox"}>
                     <div className={this.setClassName(this.props.completed, 'mark-icon')}></div>
-                    <input className={this.setClassName(this.props.completed, 'mark')} aria-label="mark undone" type="checkbox" id={this.props.id}/>
+                    <input className={this.setClassName(this.props.completed, 'mark')} aria-label="mark undone" type="checkbox"/>
                 </div>
 
                 <div className="todos-item_delete-w">
                     <div className="todos-item_delete_icon"></div>
-                    <button className="todos-item_delete" aria-label="delete item" id={this.props.id}></button>
+                    <button className="todos-item_delete" aria-label="delete item"></button>
                 </div>
 
                 <div className="todos-item_name-w">

@@ -20,7 +20,8 @@ export default class TodosCounter extends React.Component {
 
     render() {
         return (
-            <div className="todos-actions-bar_counter-undone" aria-label="number of undone items">
+            <div className="todos-actions-bar_counter-undone"
+                 aria-label="number of undone items">
                 {this.getNumOfActiveItems()}
             </div>
         )

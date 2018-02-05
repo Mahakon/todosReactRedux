@@ -3,14 +3,9 @@ module.exports = function (wallaby) {
         files: [
             './src/scripts/**/*.js?(x)'
         ],
-
         tests: [
-            './tests/**/*.js?(x)'
+            './tests/**/*.test.js'
         ],
-
-        setup: function () {
-            global.expect = require('mocha').expect;
-        },
 
         env: {
             type: 'node',
@@ -19,6 +14,10 @@ module.exports = function (wallaby) {
 
         compilers: {
             '**/*.js?(x)': wallaby.compilers.babel()
-        }
+        },
+
+        testFramework: 'jest',
+
+        debug: true
     };
 };

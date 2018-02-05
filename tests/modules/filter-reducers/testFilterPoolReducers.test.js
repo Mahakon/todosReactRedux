@@ -26,7 +26,6 @@ const testFilterReducer = (reducer) => {
     ];
 
     for (let i = 0; i < statesBefore.length; i++) {
-        deepFreeze(statesBefore[i]);
         deepFreeze(actions[i]);
 
         expect(

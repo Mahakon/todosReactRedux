@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import deleteAllCompletedTodosAction from '../../modules/actions/deleteAllCompletedTodosAction'
+import deleteAllCompletedTodosAction from
+        '../../modules/actions/deleteAllCompletedTodosAction'
 
 const TODOS_DELETE_ALL_COMPLETED_BUTTON = 'todos-actions-bar_delete-done';
 
@@ -18,17 +19,20 @@ export default class TodosDeleteAllCompletedButton extends React.Component {
     }
 
     componentDidMount() {
-        ReactDOM.findDOMNode(this).addEventListener('click', this.handlerClick);
+        ReactDOM.findDOMNode(this)
+            .addEventListener('click', this.handlerClick);
     }
 
     componentWillUnmount() {
-        ReactDOM.findDOMNode(this).removeEventListener('click', this.handlerClick);
+        ReactDOM.findDOMNode(this)
+            .removeEventListener('click', this.handlerClick);
     }
 
     render() {
         return (
             <div className="todos-actions-bar_delete">
-                <button className="todos-actions-bar_delete-done" aria-label="delete all done items">
+                <button className="todos-actions-bar_delete-done"
+                        aria-label="delete all done items">
                     Clear completed
                 </button>
             </div>

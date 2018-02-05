@@ -22,6 +22,6 @@ const init = () => {
 
     store.subscribe(render);
     render();
-}
+};
 
 document.addEventListener('DOMContentLoaded', init);

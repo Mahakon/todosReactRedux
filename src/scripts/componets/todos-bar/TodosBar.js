@@ -25,7 +25,8 @@ export default class TodosBar extends React.Component{
         return (
             <div className="todos-actions-bar" style={this.setVisibility()}>
 
-                <TodosCounter todosArray={this.props.store.getState().todosArray}/>
+                <TodosCounter todosArray=
+                                  {this.props.store.getState().todosArray}/>
 
                 <TodosFilters store={this.props.store}/>
 

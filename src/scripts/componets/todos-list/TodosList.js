@@ -5,7 +5,8 @@ import deleteTodosAction from '../../modules/actions/deteleTodosAction'
 import TodosItem from './TodosItem'
 
 const TODOS_DELETE_BUTTON_CLASS_NAME = "todos-item_delete";
-const TODOS_CHECKBOX_CLASS_NAME = ["todos-item_done-mark", "todos-item_undone-mark"];
+const TODOS_CHECKBOX_CLASS_NAME = ["todos-item_done-mark",
+    "todos-item_undone-mark"];
 
 class TodosList extends React.Component {
     constructor(props) {
@@ -17,21 +18,25 @@ class TodosList extends React.Component {
         switch (event.target.className) {
             case TODOS_CHECKBOX_CLASS_NAME[0]:
             case TODOS_CHECKBOX_CLASS_NAME[1]: {
-                this.props.store.dispatch(toggleTodosAction(event.target.parentNode.parentNode.id))
+                this.props.store.dispatch(toggleTodosAction(
+                    event.target.parentNode.parentNode.id))
             } break;
 
             case TODOS_DELETE_BUTTON_CLASS_NAME: {
-                this.props.store.dispatch(deleteTodosAction(event.target.parentNode.parentNode.id))
+                this.props.store.dispatch(deleteTodosAction(
+                    event.target.parentNode.parentNode.id))
             } break;
         }
     }
 
     componentDidMount() {
-        ReactDOM.findDOMNode(this).addEventListener('click', this.handlerClick);
+        ReactDOM.findDOMNode(this)
+            .addEventListener('click', this.handlerClick);
     }
 
     componentWillUnmount() {
-        ReactDOM.findDOMNode(this).removeEventListener('click', this.handlerClick);
+        ReactDOM.findDOMNode(this)
+            .removeEventListener('click', this.handlerClick);
     }
 
     render() {
@@ -40,7 +45,8 @@ class TodosList extends React.Component {
                 {this.props.store.getState().todosArray.map((todosElement) =>
                     <TodosItem key={todosElement.id}
                                completed={todosElement.completed}
-                               currentFilter={this.props.store.getState().currentFilter}
+                               currentFilter=
+                                   {this.props.store.getState().currentFilter}
                                value={todosElement.text}
                                id={todosElement.id}
                     />

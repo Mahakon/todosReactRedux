@@ -1,5 +1,6 @@
 import addTodosAction from '../../modules/actions/addTodosAction'
-import makeAllCompletedTodosAction from '../../modules/actions/makeAllCompletedTodosAction'
+import makeAllCompletedTodosAction from
+        '../../modules/actions/makeAllCompletedTodosAction'
 import React from 'react'
 import ReactDOM from 'react-dom'
 
@@ -27,19 +28,24 @@ export default class AddTodos extends React.Component{
     }
 
     handlerClick(event) {
-        if (event.target.className.localeCompare(TODOS_SELECT_ALL_BUTTON) === 0) {
+        if (event.target.className.localeCompare
+            (TODOS_SELECT_ALL_BUTTON) === 0) {
             this.props.store.dispatch(makeAllCompletedTodosAction())
         }
     }
 
     componentDidMount() {
-        ReactDOM.findDOMNode(this).addEventListener('keypress', this.handlerKeyPress);
-        ReactDOM.findDOMNode(this).addEventListener('click', this.handlerClick);
+        ReactDOM.findDOMNode(this)
+            .addEventListener('keypress', this.handlerKeyPress);
+        ReactDOM.findDOMNode(this)
+            .addEventListener('click', this.handlerClick);
     }
 
     componentWillUnmount() {
-        ReactDOM.findDOMNode(this).removeEventListener('keypress', this.handlerKeyPress);
-        ReactDOM.findDOMNode(this).removeEventListener('click', this.handlerClick);
+        ReactDOM.findDOMNode(this)
+            .removeEventListener('keypress', this.handlerKeyPress);
+        ReactDOM.findDOMNode(this)
+            .removeEventListener('click', this.handlerClick);
     }
 
     setVisibilityToSelectAllButton() {
@@ -58,12 +64,20 @@ export default class AddTodos extends React.Component{
         return (
             <div className="todos-add">
 
-                <button className="todos-add_select-all" style={this.setVisibilityToSelectAllButton()} aria-label="select all like done">
+                <button className="todos-add_select-all" style=
+                    {this.setVisibilityToSelectAllButton()}
+                        aria-label="select all like done">
+
                     <div className="todos-add_select-all_icon"></div>
+
                 </button>
 
                 <div className="todos-add_new-item-w">
-                    <input className="todos-add_new-item" placeholder="What needs to be done?" aria-label="add new item"/>
+
+                    <input className="todos-add_new-item"
+                           placeholder="What needs to be done?"
+                           aria-label="add new item"/>
+
                 </div>
 
             </div>

@@ -2,14 +2,16 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import setFilterTodosAction from
     '../../modules/actions/setFilterTodosAction'
-import {FILTER_COMPLETED, FILTER_ACTIVE, FILTER_ALL} from '../../constants/FilterTypes'
+import {FILTER_COMPLETED, FILTER_ACTIVE, FILTER_ALL} from
+        '../../constants/FilterTypes'
 
 export default class TodosFilters extends React.Component{
     constructor(props) {
         super(props);
         this.handlerClick = this.handlerClick.bind(this);
         this.changeFilter = this.changeFilter.bind(this);
-        this.setFocusOnCurrentFilter = this.setFocusOnCurrentFilter.bind(this);
+        this.setFocusOnCurrentFilter = this
+            .setFocusOnCurrentFilter.bind(this);
     }
 
     handlerClick(event) {
@@ -78,11 +80,13 @@ export default class TodosFilters extends React.Component{
     }
 
     componentDidMount() {
-        ReactDOM.findDOMNode(this).addEventListener('click', this.handlerClick);
+        ReactDOM.findDOMNode(this)
+            .addEventListener('click', this.handlerClick);
     }
 
     componentWillUnmount() {
-        ReactDOM.findDOMNode(this).removeEventListener('click', this.handlerClick);
+        ReactDOM.findDOMNode(this)
+            .removeEventListener('click', this.handlerClick);
     }
 
     changeFilter(filterName) {
@@ -92,13 +96,25 @@ export default class TodosFilters extends React.Component{
     render() {
         return (
             <div className="todos-filters">
-                <button className="todos-filter __all" aria-label="show all items" style={this.setFocusOnCurrentFilter(this.props.store.getState().currentFilter, FILTER_ALL)}>
+                <button className="todos-filter __all"
+                        aria-label="show all items" style=
+                            {this.setFocusOnCurrentFilter(
+                                this.props.store.getState()
+                                    .currentFilter, FILTER_ALL)}>
                     All
                 </button>
-                <button className="todos-filter __active" aria-label="show undone items" style={this.setFocusOnCurrentFilter(this.props.store.getState().currentFilter, FILTER_ACTIVE)}>
+                <button className="todos-filter __active"
+                        aria-label="show undone items" style={
+                            this.setFocusOnCurrentFilter(
+                                this.props.store.getState()
+                                    .currentFilter, FILTER_ACTIVE)}>
                     Active
                 </button>
-                <button className="todos-filter __completed" aria-label="show done items" style={this.setFocusOnCurrentFilter(this.props.store.getState().currentFilter, FILTER_COMPLETED)}>
+                <button className="todos-filter __completed"
+                        aria-label="show done items" style=
+                            {this.setFocusOnCurrentFilter(
+                                this.props.store.getState()
+                                    .currentFilter, FILTER_COMPLETED)}>
                     Completed
                 </button>
             </div>

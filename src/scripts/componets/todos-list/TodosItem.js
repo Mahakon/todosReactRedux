@@ -1,4 +1,5 @@
 import React from 'react'
+
 import {FILTER_ALL, FILTER_ACTIVE, FILTER_COMPLETED}
                             from '../../constants/FilterTypes'
 

@@ -1,4 +1,4 @@
-import {TOGGLE_TODOS} from '../../constants/ActionTypes'
+import { TOGGLE_TODOS } from '../../constants/ActionTypes'
 
 const toggleTodosAction = (id) => {
     return {

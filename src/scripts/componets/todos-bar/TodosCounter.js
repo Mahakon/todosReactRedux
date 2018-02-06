@@ -1,6 +1,7 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-export default class TodosCounter extends React.Component {
+class TodosCounter extends React.Component {
     constructor(props) {
         super(props);
         this.getNumOfActiveItems = this.getNumOfActiveItems.bind(this);
@@ -28,3 +29,11 @@ export default class TodosCounter extends React.Component {
     }
 
 }
+
+export default connect(
+    state => ({
+        todosArray: state.todosArray
+    }),
+
+    null
+)(TodosCounter)

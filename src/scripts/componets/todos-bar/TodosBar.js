@@ -1,16 +1,19 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
 import TodosDeleteAllCompletedButton from './TodosDeleteAllCompletedButton'
 import TodosFilters from './TodosFilters'
 import TodosCounter from './TodosCounter'
 
-export default class TodosBar extends React.Component{
+
+class TodosBar extends React.Component{
     constructor(props) {
         super(props);
         this.setVisibility = this.setVisibility.bind(this);
     }
 
     setVisibility() {
-        if (this.props.store.getState().todosArray.length == 0) {
+        if (this.props.numTodosItems == 0) {
             return {
                 display: "none"
             }
@@ -25,15 +28,21 @@ export default class TodosBar extends React.Component{
         return (
             <div className="todos-actions-bar" style={this.setVisibility()}>
 
-                <TodosCounter todosArray=
-                                  {this.props.store.getState().todosArray}/>
+                <TodosCounter/>
 
-                <TodosFilters store={this.props.store}/>
+                <TodosFilters/>
 
-                <TodosDeleteAllCompletedButton store={this.props.store}/>
+                <TodosDeleteAllCompletedButton/>
 
             </div>
         )
     }
 
 }
+
+export default connect(
+    state => ({
+        numTodosItems: state.todosArray.length,
+    }),
+    null
+)(TodosBar)

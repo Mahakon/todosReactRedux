@@ -1,4 +1,4 @@
-import {MAKE_ALL_COMPLETED_TODOS} from '../../constants/ActionTypes'
+import { MAKE_ALL_COMPLETED_TODOS } from '../../constants/ActionTypes'
 
 const makeAllCompletedTodosAction = () => {
     return {

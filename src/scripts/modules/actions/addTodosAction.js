@@ -1,4 +1,4 @@
-import {ADD_TODOS} from '../../constants/ActionTypes';
+import { ADD_TODOS } from '../../constants/ActionTypes';
 
 const addTodosAction = (text, id) => {
     return {

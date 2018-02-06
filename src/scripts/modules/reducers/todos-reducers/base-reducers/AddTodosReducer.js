@@ -1,6 +1,7 @@
 import BaseTodosReducer from './BaseTodosReducer'
 import TodosPoolReducers from '../TodosPoolReducers'
-import {ADD_TODOS} from '../../../../constants/ActionTypes'
+
+import { ADD_TODOS } from '../../../../constants/ActionTypes'
 
 export class AddTodosReducer extends BaseTodosReducer {
     getNewState(state, action) {

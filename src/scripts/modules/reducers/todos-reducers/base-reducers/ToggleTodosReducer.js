@@ -1,6 +1,7 @@
 import BaseTodosReducer from './BaseTodosReducer'
 import TodosPoolReducers from '../TodosPoolReducers'
-import {TOGGLE_TODOS} from '../../../../constants/ActionTypes'
+
+import { TOGGLE_TODOS } from '../../../../constants/ActionTypes'
 
 export default class ToggleTodosReducer extends BaseTodosReducer {
     getNewState(state, action) {

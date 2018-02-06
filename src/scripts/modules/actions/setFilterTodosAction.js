@@ -1,4 +1,4 @@
-import {SET_VISIBILITY_FILTER} from '../../constants/ActionTypes'
+import { SET_VISIBILITY_FILTER } from '../../constants/ActionTypes'
 
 const setFilterTodosAction = (filterName) => {
     return {

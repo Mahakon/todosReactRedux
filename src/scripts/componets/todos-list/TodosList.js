@@ -1,8 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { connect } from 'react-redux'
+
+import TodosItem from './TodosItem'
+
 import toggleTodosAction from '../../modules/actions/toggleTodosAction'
 import deleteTodosAction from '../../modules/actions/deteleTodosAction'
-import TodosItem from './TodosItem'
 
 const TODOS_DELETE_BUTTON_CLASS_NAME = "todos-item_delete";
 const TODOS_CHECKBOX_CLASS_NAME = ["todos-item_done-mark",
@@ -18,13 +21,13 @@ class TodosList extends React.Component {
         switch (event.target.className) {
             case TODOS_CHECKBOX_CLASS_NAME[0]:
             case TODOS_CHECKBOX_CLASS_NAME[1]: {
-                this.props.store.dispatch(toggleTodosAction(
-                    event.target.parentNode.parentNode.id))
+                this.props.onToggleTodos(
+                    event.target.parentNode.parentNode.id)
             } break;
 
             case TODOS_DELETE_BUTTON_CLASS_NAME: {
-                this.props.store.dispatch(deleteTodosAction(
-                    event.target.parentNode.parentNode.id))
+                this.props.onDeleteTodos(
+                    event.target.parentNode.parentNode.id)
             } break;
         }
     }
@@ -42,11 +45,11 @@ class TodosList extends React.Component {
     render() {
         return (
             <div className="todos-list">
-                {this.props.store.getState().todosArray.map((todosElement) =>
+                {this.props.todosArray.map((todosElement) =>
                     <TodosItem key={todosElement.id}
                                completed={todosElement.completed}
                                currentFilter=
-                                   {this.props.store.getState().currentFilter}
+                                   {this.props.currentFilter}
                                value={todosElement.text}
                                id={todosElement.id}
                     />
@@ -57,4 +60,21 @@ class TodosList extends React.Component {
 
 }
 
-module.exports = TodosList;
+const mapStateToProps = state => ({
+    todosArray: state.todosArray,
+    currentFilter: state.currentFilter
+});
+
+const mapDispatchToProps = dispatch => ({
+    onDeleteTodos(id) {
+        dispatch(deleteTodosAction(id))
+    },
+    onToggleTodos(id) {
+        dispatch(toggleTodosAction(id))
+    }
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(TodosList)

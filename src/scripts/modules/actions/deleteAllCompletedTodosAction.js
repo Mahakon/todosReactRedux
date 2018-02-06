@@ -1,4 +1,4 @@
-import {DELETE_ALL_COMPLETED_TODOS} from '../../constants/ActionTypes'
+import { DELETE_ALL_COMPLETED_TODOS } from '../../constants/ActionTypes'
 
 const deleteAllCompletedTodosAction = () => {
     return {

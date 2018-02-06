@@ -1,14 +1,18 @@
-import {createStore} from 'redux'
+import ReactDOM from 'react-dom'
+import React from 'react'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+
 import appReducer from './modules/reducers/appReducer'
 import TodosContainer from './componets/TodosContainer'
-import ReactDOM from 'react-dom'
-import React from'react'
 
 const init = () => {
     function render() {
         localStorage['redux-store'] = JSON.stringify(store.getState());
         ReactDOM.render(
-            <TodosContainer store={store}/>,
+            <Provider store={store}>
+                <TodosContainer/>
+            </Provider>,
             document.querySelector('.todos-container')
         )
     }

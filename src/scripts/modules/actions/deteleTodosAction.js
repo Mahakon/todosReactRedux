@@ -1,4 +1,4 @@
-import {DELETE_TODOS} from '../../constants/ActionTypes';
+import { DELETE_TODOS } from '../../constants/ActionTypes';
 
 const deleteTodosAction = (id) => {
     return {

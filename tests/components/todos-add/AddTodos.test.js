@@ -1,5 +1,6 @@
 import {shallow} from 'enzyme'
 import AddTodos from '../../../src/scripts/componets/todos-add/AddTodos'
+global.testStates
 
 describe("<AddTodos/> UI Component", () => {
    expect(

@@ -1,14 +1,16 @@
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { connect } from 'react-redux'
+
 import addTodosAction from '../../modules/actions/addTodosAction'
 import makeAllCompletedTodosAction from
         '../../modules/actions/makeAllCompletedTodosAction'
-import React from 'react'
-import ReactDOM from 'react-dom'
 
 const TODOS_INPUT = 'todos-add_new-item';
 const TODOS_SELECT_ALL_BUTTON = 'todos-add_select-all';
 const ENTER_KEY_CODE = 13;
 
-export default class AddTodos extends React.Component{
+class AddTodos extends React.Component{
     constructor(props) {
         super(props);
         this.handlerKeyPress = this.handlerKeyPress.bind(this);
@@ -18,10 +20,7 @@ export default class AddTodos extends React.Component{
     handlerKeyPress(event) {
         if (event.target.className.localeCompare(TODOS_INPUT) === 0) {
             if (event.keyCode === ENTER_KEY_CODE) {
-                this.props.store.dispatch(addTodosAction(
-                    event.target.value,
-                    new Date().getTime()
-                ));
+                this.props.onAddTodos(event.target.value);
                 event.target.value = '';
             }
         }
@@ -30,7 +29,7 @@ export default class AddTodos extends React.Component{
     handlerClick(event) {
         if (event.target.className.localeCompare
             (TODOS_SELECT_ALL_BUTTON) === 0) {
-            this.props.store.dispatch(makeAllCompletedTodosAction())
+            this.props.onMakeAllCompletedTodos();
         }
     }
 
@@ -49,7 +48,7 @@ export default class AddTodos extends React.Component{
     }
 
     setVisibilityToSelectAllButton() {
-        if (this.props.store.getState().todosArray.length === 0) {
+        if (this.props.numTodosItems === 0) {
             return {
                 visibility: 'hidden'
             }
@@ -85,3 +84,24 @@ export default class AddTodos extends React.Component{
     }
 
 }
+
+const mapStateToProps = state => ({
+    numTodosItems: state.todosArray.length
+});
+
+const mapDispatchToProps = dispatch => ({
+    onAddTodos(text) {
+        dispatch(addTodosAction(
+            text,
+            new Date().getTime()
+        ))
+    },
+    onMakeAllCompletedTodos() {
+        dispatch(makeAllCompletedTodosAction())
+    }
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(AddTodos)

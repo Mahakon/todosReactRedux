@@ -1,11 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { connect } from 'react-redux'
+
 import setFilterTodosAction from
     '../../modules/actions/setFilterTodosAction'
+
 import {FILTER_COMPLETED, FILTER_ACTIVE, FILTER_ALL} from
         '../../constants/FilterTypes'
 
-export default class TodosFilters extends React.Component{
+class TodosFilters extends React.Component{
     constructor(props) {
         super(props);
         this.handlerClick = this.handlerClick.bind(this);
@@ -90,7 +93,7 @@ export default class TodosFilters extends React.Component{
     }
 
     changeFilter(filterName) {
-        this.props.store.dispatch(setFilterTodosAction(filterName))
+        this.props.onFilterTodos(filterName)
     }
 
     render() {
@@ -99,22 +102,19 @@ export default class TodosFilters extends React.Component{
                 <button className="todos-filter __all"
                         aria-label="show all items" style=
                             {this.setFocusOnCurrentFilter(
-                                this.props.store.getState()
-                                    .currentFilter, FILTER_ALL)}>
+                                this.props.currentFilter, FILTER_ALL)}>
                     All
                 </button>
                 <button className="todos-filter __active"
                         aria-label="show undone items" style={
                             this.setFocusOnCurrentFilter(
-                                this.props.store.getState()
-                                    .currentFilter, FILTER_ACTIVE)}>
+                                this.props.currentFilter, FILTER_ACTIVE)}>
                     Active
                 </button>
                 <button className="todos-filter __completed"
                         aria-label="show done items" style=
                             {this.setFocusOnCurrentFilter(
-                                this.props.store.getState()
-                                    .currentFilter, FILTER_COMPLETED)}>
+                                this.props.currentFilter, FILTER_COMPLETED)}>
                     Completed
                 </button>
             </div>
@@ -122,3 +122,18 @@ export default class TodosFilters extends React.Component{
     }
 
 }
+
+const mapStateToProps = state => ({
+    currentFilter: state.currentFilter
+});
+
+const mapDispatchToProps = dispatch => ({
+    onFilterTodos(filterName) {
+        dispatch(setFilterTodosAction(filterName))
+    }
+});
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(TodosFilters)

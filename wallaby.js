@@ -1,10 +1,11 @@
 module.exports = function (wallaby) {
     return {
         files: [
-            './src/scripts/**/*.js?(x)'
+            './src/scripts/**/*.js?(x)',
+            '!src/scripts/__test__/**/*.test.js'
         ],
         tests: [
-            './tests/**/*.test.js'
+            './src/scripts/__tests__/**/*.test.js'
         ],
 
         env: {

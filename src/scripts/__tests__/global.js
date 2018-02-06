@@ -1,9 +1,13 @@
 import React from 'react'
 import deepFreeze from 'deep-freeze'
 
-const FILTER_ALL = 'todos-filter __all';
-const FILTER_COMPLETED = 'todos-filter __completed';
-const FILTER_ACTIVE = 'todos-filter __active';
+import { FILTER_COMPLETED, FILTER_ALL, FILTER_ACTIVE } from
+        '../constants/FilterTypes'
+
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+configure({ adapter: new Adapter() })
 
 global.React = React;
 

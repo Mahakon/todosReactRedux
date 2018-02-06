@@ -1,10 +1,9 @@
 import {shallow} from 'enzyme'
-import AddTodos from '../../../src/scripts/componets/todos-add/AddTodos'
-global.testStates
+import AddTodos from '../../../componets/todos-add/AddTodos'
 
 describe("<AddTodos/> UI Component", () => {
    expect(
-       shallow(<AddTodos/>)
+       shallow(<AddTodos numTodosItems={global.testStates[0].todosArray.length}/>)
            .find('div.todos-add_select-all')
            .length
    ).toBe(1)

@@ -1,8 +1,8 @@
 import ReactDOM from 'react-dom'
 import React from 'react'
-import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
+import storeFactory from './store/storeFactory'
 import appReducer from './modules/reducers/appReducer'
 import TodosContainer from './componets/TodosContainer'
 
@@ -17,12 +17,7 @@ const init = () => {
         )
     }
 
-    const store = createStore(
-        appReducer,
-        (localStorage['redux-store']) ?
-            JSON.parse(localStorage['redux-store']) :
-            {}
-    );
+    const store = storeFactory({}, appReducer);
 
     store.subscribe(render);
     render();

@@ -1,9 +1,14 @@
 import expect from 'expect'
 import deepFreeze from 'deep-freeze'
-import FilterReducer from '../../../src/scripts/modules/reducers/filter-reducers/base-reducers/FilterReducer'
-import FilterPoolReducers from '../../../src/scripts/modules/reducers/filter-reducers/FilterPoolReducers'
-import setFilterTodosAction from '../../../src/scripts/modules/actions/setFilterTodosAction'
-import {FILTER_COMPLETED, FILTER_ACTIVE, FILTER_ALL} from '../../../src/scripts/constants/FilterTypes'
+
+import FilterReducer from
+        '../../../modules/reducers/filter-reducers/base-reducers/FilterReducer'
+import FilterPoolReducers from
+        '../../../modules/reducers/filter-reducers/FilterPoolReducers'
+import setFilterTodosAction from
+        '../../../modules/actions/setFilterTodosAction'
+
+import {FILTER_COMPLETED, FILTER_ACTIVE, FILTER_ALL} from '../../../constants/FilterTypes'
 
 const testFilterReducer = (reducer) => {
     let statesBefore = [

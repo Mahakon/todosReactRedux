@@ -1,21 +1,33 @@
 import expect from 'expect';
 import deepFreeze from 'deep-freeze';
 
-import setFilterTodosAction from '../../../src/scripts/modules/actions/setFilterTodosAction'
-import toggleTodosAction from '../../../src/scripts/modules/actions/toggleTodosAction'
-import makeAllCompletedTodosAction from '../../../src/scripts/modules/actions/makeAllCompletedTodosAction'
-import deleteTodosAction from '../../../src/scripts/modules/actions/deteleTodosAction'
-import deleteAllCompletedTodosAction from '../../../src/scripts/modules/actions/deleteAllCompletedTodosAction'
-import addTodosAction from '../../../src/scripts/modules/actions/addTodosAction'
-import ToggleTodosReducer from '../../../src/scripts/modules/reducers/todos-reducers/base-reducers/ToggleTodosReducer'
-import AddTodosReducer from '../../../src/scripts/modules/reducers/todos-reducers/base-reducers/AddTodosReducer'
-import DeleteAllCompletedTodosReducer from '../../../src/scripts/modules/reducers/todos-reducers/base-reducers/DeleteAllCompletedTodosReducer'
-import DeleteTodosReducer from '../../../src/scripts/modules/reducers/todos-reducers/base-reducers/DeleteTodosReducer'
-import MakeAllCompletedTodosReducer from '../../../src/scripts/modules/reducers/todos-reducers/base-reducers/MakeAllCompletedTodosReducer'
-import TodosPoolReducers from '../../../src/scripts/modules/reducers/todos-reducers/TodosPoolReducers'
+import setFilterTodosAction from
+        '../../../modules/actions/setFilterTodosAction'
+import toggleTodosAction from
+        '../../../modules/actions/toggleTodosAction'
+import makeAllCompletedTodosAction from
+        '../../../modules/actions/makeAllCompletedTodosAction'
+import deleteTodosAction from
+        '../../../modules/actions/deteleTodosAction'
+import deleteAllCompletedTodosAction from
+        '../../../modules/actions/deleteAllCompletedTodosAction'
+import addTodosAction from '../../../modules/actions/addTodosAction'
+import ToggleTodosReducer
+    from '../../../modules/reducers/todos-reducers/base-reducers/ToggleTodosReducer'
+import AddTodosReducer
+    from '../../../modules/reducers/todos-reducers/base-reducers/AddTodosReducer'
+import DeleteAllCompletedTodosReducer
+    from '../../../modules/reducers/todos-reducers/base-reducers/DeleteAllCompletedTodosReducer'
+import DeleteTodosReducer
+    from '../../../modules/reducers/todos-reducers/base-reducers/DeleteTodosReducer'
+import MakeAllCompletedTodosReducer
+    from '../../../modules/reducers/todos-reducers/base-reducers/MakeAllCompletedTodosReducer'
+import TodosPoolReducers from
+        '../../../modules/reducers/todos-reducers/TodosPoolReducers'
 
 import {ADD_TODOS, DELETE_ALL_COMPLETED_TODOS, SET_VISIBILITY_FILTER,
-    DELETE_TODOS, TOGGLE_TODOS, MAKE_ALL_COMPLETED_TODOS} from '../../../src/scripts/constants/ActionTypes'
+    DELETE_TODOS, TOGGLE_TODOS, MAKE_ALL_COMPLETED_TODOS} from
+        '../../../constants/ActionTypes'
 
 
 const testTodosReducer = (statesBefore, actions, statesAfter) => {

@@ -1,5 +1,6 @@
 import React from 'react'
 import deepFreeze from 'deep-freeze'
+import expect from 'expect'
 
 import { FILTER_COMPLETED, FILTER_ALL, FILTER_ACTIVE } from
         '../constants/FilterTypes'
@@ -10,6 +11,7 @@ import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() })
 
 global.React = React;
+global.expect = expect;
 
 global.testStates = deepFreeze([
     {
@@ -57,8 +59,5 @@ global.testStates = deepFreeze([
         ],
         currentFilter: FILTER_ALL
     },
-    {
-        todosArray: [],
-        currentFilter: FILTER_ALL
-    },
+    {}
 ]);

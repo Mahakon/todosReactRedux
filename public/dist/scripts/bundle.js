@@ -22607,8 +22607,6 @@ var _TodosFilters2 = _interopRequireDefault(_TodosFilters);
 
 var _TodosCounter = __webpack_require__(97);
 
-var _TodosCounter2 = _interopRequireDefault(_TodosCounter);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -22648,7 +22646,7 @@ var TodosBar = function (_React$Component) {
             return _react2.default.createElement(
                 'div',
                 { className: 'todos-actions-bar', style: this.setVisibility() },
-                _react2.default.createElement(_TodosCounter2.default, null),
+                _react2.default.createElement(_TodosCounter.connectedTodosCounter, null),
                 _react2.default.createElement(_TodosFilters2.default, null),
                 _react2.default.createElement(_TodosDeleteAllCompletedButton2.default, null)
             );
@@ -22994,6 +22992,7 @@ exports.default = setFilterTodosAction;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.connectedTodosCounter = exports.TodosCounter = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -23011,7 +23010,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var TodosCounter = function (_React$Component) {
+var TodosCounter = exports.TodosCounter = function (_React$Component) {
     _inherits(TodosCounter, _React$Component);
 
     function TodosCounter(props) {
@@ -23051,7 +23050,7 @@ var TodosCounter = function (_React$Component) {
     return TodosCounter;
 }(_react2.default.Component);
 
-exports.default = (0, _reactRedux.connect)(function (state) {
+var connectedTodosCounter = exports.connectedTodosCounter = (0, _reactRedux.connect)(function (state) {
     return {
         todosArray: state.todosArray
     };

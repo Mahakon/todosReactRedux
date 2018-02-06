@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import TodosDeleteAllCompletedButton from './TodosDeleteAllCompletedButton'
 import TodosFilters from './TodosFilters'
-import TodosCounter from './TodosCounter'
+import { connectedTodosCounter as TodosCounter }  from './TodosCounter'
 
 
 class TodosBar extends React.Component{

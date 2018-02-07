@@ -1,5 +1,5 @@
 import {shallow} from 'enzyme'
-import AddTodos from '../../../componets/todos-add/AddTodos'
+import AddTodos from '../../../componets/containers/todos-add/AddTodos'
 import storeFactory from '../../../store/storeFactory'
 import appReducer from '../../../modules/reducers/appReducer'
 

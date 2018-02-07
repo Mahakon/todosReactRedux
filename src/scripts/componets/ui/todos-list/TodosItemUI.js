@@ -1,9 +1,10 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 import {FILTER_ALL, FILTER_ACTIVE, FILTER_COMPLETED}
-                            from '../../constants/FilterTypes'
+                            from '../../../constants/FilterTypes'
 
-export default class TodosItem extends React.Component {
+export default class TodosItemUI extends React.Component {
     constructor(props) {
         super(props);
         this.setClassName = this.setClassName.bind(this);
@@ -107,3 +108,10 @@ export default class TodosItem extends React.Component {
         )
     }
 }
+
+TodosItemUI.propTypes = {
+    completed: PropTypes.bool.isRequired,
+    currentFilter: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
+    value: PropTypes.string.isRequired
+};

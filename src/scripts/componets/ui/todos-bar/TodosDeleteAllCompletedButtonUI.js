@@ -1,14 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { connect } from 'react-redux'
-
-import deleteAllCompletedTodosAction from
-        '../../modules/actions/deleteAllCompletedTodosAction'
-
+import PropTypes from 'prop-types'
 
 const TODOS_DELETE_ALL_COMPLETED_BUTTON = 'todos-actions-bar_delete-done';
 
-class TodosDeleteAllCompletedButton extends React.Component {
+export default class TodosDeleteAllCompletedButtonUI extends React.Component {
     constructor(props) {
         super(props);
         this.handlerClick = this.handlerClick.bind(this);
@@ -44,11 +40,6 @@ class TodosDeleteAllCompletedButton extends React.Component {
 
 }
 
-export default connect(
-    null,
-    dispatch => ({
-        onDeleteAllCompletedTodos() {
-            dispatch(deleteAllCompletedTodosAction())
-        }
-    })
-)(TodosDeleteAllCompletedButton)
+TodosDeleteAllCompletedButtonUI.propTypes = {
+    onDeleteAllCompletedTodos: PropTypes.func.isRequired
+};

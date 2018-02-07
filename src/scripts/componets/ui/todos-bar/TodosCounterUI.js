@@ -1,7 +1,7 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
-export class TodosCounter extends React.Component {
+export default class TodosCounterUI extends React.Component {
     constructor(props) {
         super(props);
         this.getNumOfActiveItems = this.getNumOfActiveItems.bind(this);
@@ -30,10 +30,6 @@ export class TodosCounter extends React.Component {
 
 }
 
-export const connectedTodosCounter =  connect(
-    state => ({
-        todosArray: state.todosArray
-    }),
-
-    null
-)(TodosCounter)
+TodosCounterUI.propTypes = {
+    todosArray: PropTypes.array.isRequired
+};

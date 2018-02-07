@@ -1,16 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { connect } from 'react-redux'
-
-import addTodosAction from '../../modules/actions/addTodosAction'
-import makeAllCompletedTodosAction from
-        '../../modules/actions/makeAllCompletedTodosAction'
+import PropTypes from 'prop-types'
 
 const TODOS_INPUT = 'todos-add_new-item';
 const TODOS_SELECT_ALL_BUTTON = 'todos-add_select-all';
 const ENTER_KEY_CODE = 13;
 
-class AddTodos extends React.Component{
+export default class AddTodosUI extends React.Component {
     constructor(props) {
         super(props);
         this.handlerKeyPress = this.handlerKeyPress.bind(this);
@@ -85,23 +81,7 @@ class AddTodos extends React.Component{
 
 }
 
-const mapStateToProps = state => ({
-    numTodosItems: state.todosArray.length
-});
-
-const mapDispatchToProps = dispatch => ({
-    onAddTodos(text) {
-        dispatch(addTodosAction(
-            text,
-            new Date().getTime()
-        ))
-    },
-    onMakeAllCompletedTodos() {
-        dispatch(makeAllCompletedTodosAction())
-    }
-});
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(AddTodos)
+AddTodosUI.propTypes = {
+    onAddTodos: PropTypes.func.isRequired,
+    numTodosItems: PropTypes.number.isRequired
+};

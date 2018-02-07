@@ -1,8 +1,8 @@
 import { shallow } from 'enzyme'
-import TodosItem from '../../../componets/todos-list/TodosItem'
+import TodosItemUI from '../../../componets/ui/todos-list/TodosItemUI'
 import { FILTER_ALL } from '../../../constants/FilterTypes'
 
-describe("<AddTodos/> UI Component", () => {
+describe("<TodosItemUI/> UI Component", () => {
     let todosElement;
     beforeAll(() => {
         todosElement = {
@@ -14,7 +14,7 @@ describe("<AddTodos/> UI Component", () => {
     it('should be', () => {
         expect(
             shallow(
-                <TodosItem
+                <TodosItemUI
                     key={todosElement.id}
                     completed={todosElement.completed}
                     currentFilter=

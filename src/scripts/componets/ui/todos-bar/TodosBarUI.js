@@ -1,12 +1,12 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
-import TodosDeleteAllCompletedButton from './TodosDeleteAllCompletedButton'
-import TodosFilters from './TodosFilters'
-import { connectedTodosCounter as TodosCounter }  from './TodosCounter'
+import TodosFilters from '../../containers/todos-bar/TodosFilters'
+import TodosCounter from '../../containers/todos-bar/TodosCounter'
+import TodosDeleteAllCompletedButton from
+        '../../containers/todos-bar/TodosDeleteAllCompletedButton'
 
-
-class TodosBar extends React.Component{
+export default class TodosBarUI extends React.Component{
     constructor(props) {
         super(props);
         this.setVisibility = this.setVisibility.bind(this);
@@ -27,22 +27,15 @@ class TodosBar extends React.Component{
     render() {
         return (
             <div className="todos-actions-bar" style={this.setVisibility()}>
-
                 <TodosCounter/>
-
                 <TodosFilters/>
-
                 <TodosDeleteAllCompletedButton/>
-
             </div>
         )
     }
 
 }
 
-export default connect(
-    state => ({
-        numTodosItems: state.todosArray.length,
-    }),
-    null
-)(TodosBar)
+TodosBarUI.propTypes = {
+    numTodosItems: PropTypes.number.isRequired
+};

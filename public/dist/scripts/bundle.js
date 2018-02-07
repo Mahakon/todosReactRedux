@@ -289,6 +289,41 @@ var SET_VISIBILITY_FILTER = exports.SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILT
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+if (process.env.NODE_ENV !== 'production') {
+  var REACT_ELEMENT_TYPE = (typeof Symbol === 'function' &&
+    Symbol.for &&
+    Symbol.for('react.element')) ||
+    0xeac7;
+
+  var isValidElement = function(object) {
+    return typeof object === 'object' &&
+      object !== null &&
+      object.$$typeof === REACT_ELEMENT_TYPE;
+  };
+
+  // By explicitly using `prop-types` you are opting into new development behavior.
+  // http://fb.me/prop-types-in-prod
+  var throwOnDirectAccess = true;
+  module.exports = __webpack_require__(48)(isValidElement, throwOnDirectAccess);
+} else {
+  // By explicitly using `prop-types` you are opting into new production behavior.
+  // http://fb.me/prop-types-in-prod
+  module.exports = __webpack_require__(50)();
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
 
 
@@ -328,7 +363,7 @@ emptyFunction.thatReturnsArgument = function (arg) {
 module.exports = emptyFunction;
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -347,7 +382,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -394,7 +429,7 @@ var TodosPoolReducers = function () {
 exports.default = new TodosPoolReducers();
 
 /***/ }),
-/* 6 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -440,7 +475,7 @@ if (process.env.NODE_ENV === 'production') {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -500,7 +535,7 @@ module.exports = invariant;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -532,7 +567,7 @@ var BaseTodosReducer = function () {
 exports.default = BaseTodosReducer;
 
 /***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -556,7 +591,7 @@ module.exports = emptyObject;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -570,7 +605,7 @@ module.exports = emptyObject;
 
 
 
-var emptyFunction = __webpack_require__(3);
+var emptyFunction = __webpack_require__(4);
 
 /**
  * Similar to invariant but only logs a warning if the condition is not met.
@@ -625,7 +660,7 @@ module.exports = warning;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -639,9 +674,9 @@ module.exports = warning;
 
 
 if (process.env.NODE_ENV !== 'production') {
-  var invariant = __webpack_require__(7);
-  var warning = __webpack_require__(10);
-  var ReactPropTypesSecret = __webpack_require__(12);
+  var invariant = __webpack_require__(8);
+  var warning = __webpack_require__(11);
+  var ReactPropTypesSecret = __webpack_require__(13);
   var loggedTypeFailures = {};
 }
 
@@ -692,7 +727,7 @@ module.exports = checkPropTypes;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -711,7 +746,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -739,7 +774,7 @@ function warning(message) {
 }
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -776,7 +811,7 @@ if (process.env.NODE_ENV !== 'production' && typeof isCrushed.name === 'string' 
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -848,7 +883,7 @@ function isPlainObject(value) {
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -945,7 +980,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -984,7 +1019,7 @@ var ExecutionEnvironment = {
 module.exports = ExecutionEnvironment;
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1081,7 +1116,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1096,7 +1131,7 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
  * @typechecks
  */
 
-var emptyFunction = __webpack_require__(3);
+var emptyFunction = __webpack_require__(4);
 
 /**
  * Upstream version of event listener. Does not take into account specific
@@ -1162,7 +1197,7 @@ module.exports = EventListener;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1204,7 +1239,7 @@ function getActiveElement(doc) /*?DOMElement*/{
 module.exports = getActiveElement;
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1275,7 +1310,7 @@ function shallowEqual(objA, objB) {
 module.exports = shallowEqual;
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1318,7 +1353,7 @@ function containsNode(outerNode, innerNode) {
 module.exports = containsNode;
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1348,48 +1383,13 @@ function focusNode(node) {
 module.exports = focusNode;
 
 /***/ }),
-/* 24 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-if (process.env.NODE_ENV !== 'production') {
-  var REACT_ELEMENT_TYPE = (typeof Symbol === 'function' &&
-    Symbol.for &&
-    Symbol.for('react.element')) ||
-    0xeac7;
-
-  var isValidElement = function(object) {
-    return typeof object === 'object' &&
-      object !== null &&
-      object.$$typeof === REACT_ELEMENT_TYPE;
-  };
-
-  // By explicitly using `prop-types` you are opting into new development behavior.
-  // http://fb.me/prop-types-in-prod
-  var throwOnDirectAccess = true;
-  module.exports = __webpack_require__(48)(isValidElement, throwOnDirectAccess);
-} else {
-  // By explicitly using `prop-types` you are opting into new production behavior.
-  // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(50)();
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
 /* 25 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return subscriptionShape; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return storeShape; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_prop_types__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_prop_types__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_prop_types__);
 
 
@@ -1718,7 +1718,7 @@ selectorFactory) {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ActionTypes; });
 /* harmony export (immutable) */ __webpack_exports__["b"] = createStore;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_es_isPlainObject__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_es_isPlainObject__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_symbol_observable__ = __webpack_require__(65);
 
 
@@ -2161,8 +2161,8 @@ function wrapMapToPropsFunc(mapToProps, methodName) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = verifyPlainObject;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_es_isPlainObject__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__warning__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_lodash_es_isPlainObject__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__warning__ = __webpack_require__(14);
 
 
 
@@ -2240,7 +2240,7 @@ var FILTER_ACTIVE = exports.FILTER_ACTIVE = 'todos-filter __active';
 "use strict";
 
 
-var _reactDom = __webpack_require__(6);
+var _reactDom = __webpack_require__(7);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
@@ -2248,7 +2248,7 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(4);
+var _reactRedux = __webpack_require__(5);
 
 var _storeFactory = __webpack_require__(75);
 
@@ -2299,7 +2299,7 @@ document.addEventListener('DOMContentLoaded', init);
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(1),l=__webpack_require__(17),B=__webpack_require__(18),C=__webpack_require__(3),ba=__webpack_require__(19),da=__webpack_require__(20),ea=__webpack_require__(21),fa=__webpack_require__(22),ia=__webpack_require__(23),D=__webpack_require__(9);
+var aa=__webpack_require__(1),l=__webpack_require__(18),B=__webpack_require__(19),C=__webpack_require__(4),ba=__webpack_require__(20),da=__webpack_require__(21),ea=__webpack_require__(22),fa=__webpack_require__(23),ia=__webpack_require__(24),D=__webpack_require__(10);
 function E(a){for(var b=arguments.length-1,c="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,d=0;d<b;d++)c+="\x26args[]\x3d"+encodeURIComponent(arguments[d+1]);b=Error(c+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}aa?void 0:E("227");
 var oa={children:!0,dangerouslySetInnerHTML:!0,defaultValue:!0,defaultChecked:!0,innerHTML:!0,suppressContentEditableWarning:!0,suppressHydrationWarning:!0,style:!0};function pa(a,b){return(a&b)===b}
 var ta={MUST_USE_PROPERTY:1,HAS_BOOLEAN_VALUE:4,HAS_NUMERIC_VALUE:8,HAS_POSITIVE_NUMERIC_VALUE:24,HAS_OVERLOADED_BOOLEAN_VALUE:32,HAS_STRING_BOOLEAN_VALUE:64,injectDOMPropertyConfig:function(a){var b=ta,c=a.Properties||{},d=a.DOMAttributeNamespaces||{},e=a.DOMAttributeNames||{};a=a.DOMMutationMethods||{};for(var f in c){ua.hasOwnProperty(f)?E("48",f):void 0;var g=f.toLowerCase(),h=c[f];g={attributeName:g,attributeNamespace:null,propertyName:f,mutationMethod:null,mustUseProperty:pa(h,b.MUST_USE_PROPERTY),
@@ -2532,7 +2532,7 @@ Z.injectIntoDevTools({findFiberByHostInstance:pb,bundleType:0,version:"16.2.0",r
  * LICENSE file in the root directory of this source tree.
  */
 
-var m=__webpack_require__(16),n=__webpack_require__(9),p=__webpack_require__(3),q="function"===typeof Symbol&&Symbol["for"],r=q?Symbol["for"]("react.element"):60103,t=q?Symbol["for"]("react.call"):60104,u=q?Symbol["for"]("react.return"):60105,v=q?Symbol["for"]("react.portal"):60106,w=q?Symbol["for"]("react.fragment"):60107,x="function"===typeof Symbol&&Symbol.iterator;
+var m=__webpack_require__(17),n=__webpack_require__(10),p=__webpack_require__(4),q="function"===typeof Symbol&&Symbol["for"],r=q?Symbol["for"]("react.element"):60103,t=q?Symbol["for"]("react.call"):60104,u=q?Symbol["for"]("react.return"):60105,v=q?Symbol["for"]("react.portal"):60106,w=q?Symbol["for"]("react.fragment"):60107,x="function"===typeof Symbol&&Symbol.iterator;
 function y(a){for(var b=arguments.length-1,e="Minified React error #"+a+"; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d"+a,c=0;c<b;c++)e+="\x26args[]\x3d"+encodeURIComponent(arguments[c+1]);b=Error(e+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings.");b.name="Invariant Violation";b.framesToPop=1;throw b;}
 var z={isMounted:function(){return!1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}};function A(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}A.prototype.isReactComponent={};A.prototype.setState=function(a,b){"object"!==typeof a&&"function"!==typeof a&&null!=a?y("85"):void 0;this.updater.enqueueSetState(this,a,b,"setState")};A.prototype.forceUpdate=function(a){this.updater.enqueueForceUpdate(this,a,"forceUpdate")};
 function B(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}function C(){}C.prototype=A.prototype;var D=B.prototype=new C;D.constructor=B;m(D,A.prototype);D.isPureReactComponent=!0;function E(a,b,e){this.props=a;this.context=b;this.refs=n;this.updater=e||z}var F=E.prototype=new C;F.constructor=E;m(F,A.prototype);F.unstable_isAsyncReactComponent=!0;F.render=function(){return this.props.children};var G={current:null},H=Object.prototype.hasOwnProperty,I={key:!0,ref:!0,__self:!0,__source:!0};
@@ -2568,12 +2568,12 @@ if (process.env.NODE_ENV !== "production") {
   (function() {
 'use strict';
 
-var _assign = __webpack_require__(16);
-var emptyObject = __webpack_require__(9);
-var invariant = __webpack_require__(7);
-var warning = __webpack_require__(10);
-var emptyFunction = __webpack_require__(3);
-var checkPropTypes = __webpack_require__(11);
+var _assign = __webpack_require__(17);
+var emptyObject = __webpack_require__(10);
+var invariant = __webpack_require__(8);
+var warning = __webpack_require__(11);
+var emptyFunction = __webpack_require__(4);
+var checkPropTypes = __webpack_require__(12);
 
 // TODO: this is special because it gets imported during build.
 
@@ -3990,18 +3990,18 @@ if (process.env.NODE_ENV !== "production") {
 'use strict';
 
 var React = __webpack_require__(1);
-var invariant = __webpack_require__(7);
-var warning = __webpack_require__(10);
-var ExecutionEnvironment = __webpack_require__(17);
-var _assign = __webpack_require__(18);
-var emptyFunction = __webpack_require__(3);
-var EventListener = __webpack_require__(19);
-var getActiveElement = __webpack_require__(20);
-var shallowEqual = __webpack_require__(21);
-var containsNode = __webpack_require__(22);
-var focusNode = __webpack_require__(23);
-var emptyObject = __webpack_require__(9);
-var checkPropTypes = __webpack_require__(11);
+var invariant = __webpack_require__(8);
+var warning = __webpack_require__(11);
+var ExecutionEnvironment = __webpack_require__(18);
+var _assign = __webpack_require__(19);
+var emptyFunction = __webpack_require__(4);
+var EventListener = __webpack_require__(20);
+var getActiveElement = __webpack_require__(21);
+var shallowEqual = __webpack_require__(22);
+var containsNode = __webpack_require__(23);
+var focusNode = __webpack_require__(24);
+var emptyObject = __webpack_require__(10);
+var checkPropTypes = __webpack_require__(12);
 var hyphenateStyleName = __webpack_require__(43);
 var camelizeStyleName = __webpack_require__(45);
 
@@ -19533,10 +19533,10 @@ module.exports = camelize;
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony export (immutable) */ __webpack_exports__["a"] = createProvider;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_PropTypes__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_warning__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils_warning__ = __webpack_require__(14);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -19625,13 +19625,13 @@ function createProvider() {
 
 
 
-var emptyFunction = __webpack_require__(3);
-var invariant = __webpack_require__(7);
-var warning = __webpack_require__(10);
+var emptyFunction = __webpack_require__(4);
+var invariant = __webpack_require__(8);
+var warning = __webpack_require__(11);
 var assign = __webpack_require__(49);
 
-var ReactPropTypesSecret = __webpack_require__(12);
-var checkPropTypes = __webpack_require__(11);
+var ReactPropTypesSecret = __webpack_require__(13);
+var checkPropTypes = __webpack_require__(12);
 
 module.exports = function(isValidElement, throwOnDirectAccess) {
   /* global Symbol */
@@ -20272,9 +20272,9 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 
 
 
-var emptyFunction = __webpack_require__(3);
-var invariant = __webpack_require__(7);
-var ReactPropTypesSecret = __webpack_require__(12);
+var emptyFunction = __webpack_require__(4);
+var invariant = __webpack_require__(8);
+var ReactPropTypesSecret = __webpack_require__(13);
 
 module.exports = function() {
   function shim(props, propName, componentName, location, propFullName, secret) {
@@ -20714,7 +20714,7 @@ function shallowEqual(objA, objB) {
 /* unused harmony export whenMapDispatchToPropsIsFunction */
 /* unused harmony export whenMapDispatchToPropsIsMissing */
 /* unused harmony export whenMapDispatchToPropsIsObject */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__(14);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__wrapMapToProps__ = __webpack_require__(32);
 
 
@@ -21049,7 +21049,7 @@ function symbolObservablePonyfill(root) {
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony export (immutable) */ __webpack_exports__["a"] = combineReducers;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createStore__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash_es_isPlainObject__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash_es_isPlainObject__ = __webpack_require__(16);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_warning__ = __webpack_require__(30);
 
 
@@ -21491,7 +21491,7 @@ function finalPropsSelectorFactory(dispatch, _ref2) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = verifySubselectors;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_warning__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_warning__ = __webpack_require__(14);
 
 
 function verify(selector, methodName, displayName) {
@@ -21521,7 +21521,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _redux = __webpack_require__(14);
+var _redux = __webpack_require__(15);
 
 var logger = function logger(store) {
     return function (next) {
@@ -21567,9 +21567,9 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _redux = __webpack_require__(14);
+var _redux = __webpack_require__(15);
 
-var _TodosPoolReducers = __webpack_require__(5);
+var _TodosPoolReducers = __webpack_require__(6);
 
 var _TodosPoolReducers2 = _interopRequireDefault(_TodosPoolReducers);
 
@@ -21622,11 +21622,11 @@ exports.AddTodosReducer = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _BaseTodosReducer2 = __webpack_require__(8);
+var _BaseTodosReducer2 = __webpack_require__(9);
 
 var _BaseTodosReducer3 = _interopRequireDefault(_BaseTodosReducer2);
 
-var _TodosPoolReducers = __webpack_require__(5);
+var _TodosPoolReducers = __webpack_require__(6);
 
 var _TodosPoolReducers2 = _interopRequireDefault(_TodosPoolReducers);
 
@@ -21684,11 +21684,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _BaseTodosReducer2 = __webpack_require__(8);
+var _BaseTodosReducer2 = __webpack_require__(9);
 
 var _BaseTodosReducer3 = _interopRequireDefault(_BaseTodosReducer2);
 
-var _TodosPoolReducers = __webpack_require__(5);
+var _TodosPoolReducers = __webpack_require__(6);
 
 var _TodosPoolReducers2 = _interopRequireDefault(_TodosPoolReducers);
 
@@ -21753,11 +21753,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _BaseTodosReducer2 = __webpack_require__(8);
+var _BaseTodosReducer2 = __webpack_require__(9);
 
 var _BaseTodosReducer3 = _interopRequireDefault(_BaseTodosReducer2);
 
-var _TodosPoolReducers = __webpack_require__(5);
+var _TodosPoolReducers = __webpack_require__(6);
 
 var _TodosPoolReducers2 = _interopRequireDefault(_TodosPoolReducers);
 
@@ -21818,11 +21818,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _BaseTodosReducer2 = __webpack_require__(8);
+var _BaseTodosReducer2 = __webpack_require__(9);
 
 var _BaseTodosReducer3 = _interopRequireDefault(_BaseTodosReducer2);
 
-var _TodosPoolReducers = __webpack_require__(5);
+var _TodosPoolReducers = __webpack_require__(6);
 
 var _TodosPoolReducers2 = _interopRequireDefault(_TodosPoolReducers);
 
@@ -21883,11 +21883,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _BaseTodosReducer2 = __webpack_require__(8);
+var _BaseTodosReducer2 = __webpack_require__(9);
 
 var _BaseTodosReducer3 = _interopRequireDefault(_BaseTodosReducer2);
 
-var _TodosPoolReducers = __webpack_require__(5);
+var _TodosPoolReducers = __webpack_require__(6);
 
 var _TodosPoolReducers2 = _interopRequireDefault(_TodosPoolReducers);
 
@@ -22047,11 +22047,11 @@ var _AddTodos = __webpack_require__(85);
 
 var _AddTodos2 = _interopRequireDefault(_AddTodos);
 
-var _TodosList = __webpack_require__(88);
+var _TodosList = __webpack_require__(89);
 
 var _TodosList2 = _interopRequireDefault(_TodosList);
 
-var _TodosBar = __webpack_require__(92);
+var _TodosBar = __webpack_require__(94);
 
 var _TodosBar2 = _interopRequireDefault(_TodosBar);
 
@@ -22101,25 +22101,65 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _reactRedux = __webpack_require__(5);
+
+var _AddTodosUI = __webpack_require__(86);
+
+var _AddTodosUI2 = _interopRequireDefault(_AddTodosUI);
+
+var _addTodosAction = __webpack_require__(87);
+
+var _addTodosAction2 = _interopRequireDefault(_addTodosAction);
+
+var _makeAllCompletedTodosAction = __webpack_require__(88);
+
+var _makeAllCompletedTodosAction2 = _interopRequireDefault(_makeAllCompletedTodosAction);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mapStateToProps = function mapStateToProps(state) {
+    return {
+        numTodosItems: state.todosArray.length
+    };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {
+        onAddTodos: function onAddTodos(text) {
+            dispatch((0, _addTodosAction2.default)(text, new Date().getTime()));
+        },
+        onMakeAllCompletedTodos: function onMakeAllCompletedTodos() {
+            dispatch((0, _makeAllCompletedTodosAction2.default)());
+        }
+    };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_AddTodosUI2.default);
+
+/***/ }),
+/* 86 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(6);
+var _reactDom = __webpack_require__(7);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _reactRedux = __webpack_require__(4);
+var _propTypes = __webpack_require__(3);
 
-var _addTodosAction = __webpack_require__(86);
-
-var _addTodosAction2 = _interopRequireDefault(_addTodosAction);
-
-var _makeAllCompletedTodosAction = __webpack_require__(87);
-
-var _makeAllCompletedTodosAction2 = _interopRequireDefault(_makeAllCompletedTodosAction);
+var _propTypes2 = _interopRequireDefault(_propTypes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22133,20 +22173,20 @@ var TODOS_INPUT = 'todos-add_new-item';
 var TODOS_SELECT_ALL_BUTTON = 'todos-add_select-all';
 var ENTER_KEY_CODE = 13;
 
-var AddTodos = function (_React$Component) {
-    _inherits(AddTodos, _React$Component);
+var AddTodosUI = function (_React$Component) {
+    _inherits(AddTodosUI, _React$Component);
 
-    function AddTodos(props) {
-        _classCallCheck(this, AddTodos);
+    function AddTodosUI(props) {
+        _classCallCheck(this, AddTodosUI);
 
-        var _this = _possibleConstructorReturn(this, (AddTodos.__proto__ || Object.getPrototypeOf(AddTodos)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (AddTodosUI.__proto__ || Object.getPrototypeOf(AddTodosUI)).call(this, props));
 
         _this.handlerKeyPress = _this.handlerKeyPress.bind(_this);
         _this.handlerClick = _this.handlerClick.bind(_this);
         return _this;
     }
 
-    _createClass(AddTodos, [{
+    _createClass(AddTodosUI, [{
         key: 'handlerKeyPress',
         value: function handlerKeyPress(event) {
             if (event.target.className.localeCompare(TODOS_INPUT) === 0) {
@@ -22211,30 +22251,19 @@ var AddTodos = function (_React$Component) {
         }
     }]);
 
-    return AddTodos;
+    return AddTodosUI;
 }(_react2.default.Component);
 
-var mapStateToProps = function mapStateToProps(state) {
-    return {
-        numTodosItems: state.todosArray.length
-    };
-};
+exports.default = AddTodosUI;
 
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-    return {
-        onAddTodos: function onAddTodos(text) {
-            dispatch((0, _addTodosAction2.default)(text, new Date().getTime()));
-        },
-        onMakeAllCompletedTodos: function onMakeAllCompletedTodos() {
-            dispatch((0, _makeAllCompletedTodosAction2.default)());
-        }
-    };
-};
 
-exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(AddTodos);
+AddTodosUI.propTypes = {
+    onAddTodos: _propTypes2.default.func.isRequired,
+    numTodosItems: _propTypes2.default.number.isRequired
+};
 
 /***/ }),
-/* 86 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22257,7 +22286,7 @@ var addTodosAction = function addTodosAction(text, id) {
 exports.default = addTodosAction;
 
 /***/ }),
-/* 87 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22278,7 +22307,54 @@ var makeAllCompletedTodosAction = function makeAllCompletedTodosAction() {
 exports.default = makeAllCompletedTodosAction;
 
 /***/ }),
-/* 88 */
+/* 89 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _reactRedux = __webpack_require__(5);
+
+var _TodosListUI = __webpack_require__(90);
+
+var _TodosListUI2 = _interopRequireDefault(_TodosListUI);
+
+var _toggleTodosAction = __webpack_require__(92);
+
+var _toggleTodosAction2 = _interopRequireDefault(_toggleTodosAction);
+
+var _deteleTodosAction = __webpack_require__(93);
+
+var _deteleTodosAction2 = _interopRequireDefault(_deteleTodosAction);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mapStateToProps = function mapStateToProps(state) {
+    return {
+        todosArray: state.todosArray,
+        currentFilter: state.currentFilter
+    };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {
+        onDeleteTodos: function onDeleteTodos(id) {
+            dispatch((0, _deteleTodosAction2.default)(id));
+        },
+        onToggleTodos: function onToggleTodos(id) {
+            dispatch((0, _toggleTodosAction2.default)(id));
+        }
+    };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_TodosListUI2.default);
+
+/***/ }),
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22294,23 +22370,17 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(6);
+var _reactDom = __webpack_require__(7);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _reactRedux = __webpack_require__(4);
+var _propTypes = __webpack_require__(3);
 
-var _TodosItem = __webpack_require__(89);
+var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _TodosItem2 = _interopRequireDefault(_TodosItem);
+var _TodosItemUI = __webpack_require__(91);
 
-var _toggleTodosAction = __webpack_require__(90);
-
-var _toggleTodosAction2 = _interopRequireDefault(_toggleTodosAction);
-
-var _deteleTodosAction = __webpack_require__(91);
-
-var _deteleTodosAction2 = _interopRequireDefault(_deteleTodosAction);
+var _TodosItemUI2 = _interopRequireDefault(_TodosItemUI);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -22323,19 +22393,19 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var TODOS_DELETE_BUTTON_CLASS_NAME = "todos-item_delete";
 var TODOS_CHECKBOX_CLASS_NAME = ["todos-item_done-mark", "todos-item_undone-mark"];
 
-var TodosList = function (_React$Component) {
-    _inherits(TodosList, _React$Component);
+var TodosListUI = function (_React$Component) {
+    _inherits(TodosListUI, _React$Component);
 
-    function TodosList(props) {
-        _classCallCheck(this, TodosList);
+    function TodosListUI(props) {
+        _classCallCheck(this, TodosListUI);
 
-        var _this = _possibleConstructorReturn(this, (TodosList.__proto__ || Object.getPrototypeOf(TodosList)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (TodosListUI.__proto__ || Object.getPrototypeOf(TodosListUI)).call(this, props));
 
         _this.handlerClick = _this.handlerClick.bind(_this);
         return _this;
     }
 
-    _createClass(TodosList, [{
+    _createClass(TodosListUI, [{
         key: 'handlerClick',
         value: function handlerClick(event) {
             switch (event.target.className) {
@@ -22370,7 +22440,7 @@ var TodosList = function (_React$Component) {
                 'div',
                 { className: 'todos-list' },
                 this.props.todosArray.map(function (todosElement) {
-                    return _react2.default.createElement(_TodosItem2.default, { key: todosElement.id,
+                    return _react2.default.createElement(_TodosItemUI2.default, { key: todosElement.id,
                         completed: todosElement.completed,
                         currentFilter: _this2.props.currentFilter,
                         value: todosElement.text,
@@ -22381,31 +22451,21 @@ var TodosList = function (_React$Component) {
         }
     }]);
 
-    return TodosList;
+    return TodosListUI;
 }(_react2.default.Component);
 
-var mapStateToProps = function mapStateToProps(state) {
-    return {
-        todosArray: state.todosArray,
-        currentFilter: state.currentFilter
-    };
-};
+exports.default = TodosListUI;
 
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-    return {
-        onDeleteTodos: function onDeleteTodos(id) {
-            dispatch((0, _deteleTodosAction2.default)(id));
-        },
-        onToggleTodos: function onToggleTodos(id) {
-            dispatch((0, _toggleTodosAction2.default)(id));
-        }
-    };
-};
 
-exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(TodosList);
+TodosListUI.propTypes = {
+    onToggleTodos: _propTypes2.default.func.isRequired,
+    onDeleteTodos: _propTypes2.default.func.isRequired,
+    todosArray: _propTypes2.default.array.isRequired,
+    currentFilter: _propTypes2.default.string.isRequired
+};
 
 /***/ }),
-/* 89 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22421,6 +22481,10 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = __webpack_require__(3);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _FilterTypes = __webpack_require__(35);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -22431,20 +22495,20 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var TodosItem = function (_React$Component) {
-    _inherits(TodosItem, _React$Component);
+var TodosItemUI = function (_React$Component) {
+    _inherits(TodosItemUI, _React$Component);
 
-    function TodosItem(props) {
-        _classCallCheck(this, TodosItem);
+    function TodosItemUI(props) {
+        _classCallCheck(this, TodosItemUI);
 
-        var _this = _possibleConstructorReturn(this, (TodosItem.__proto__ || Object.getPrototypeOf(TodosItem)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (TodosItemUI.__proto__ || Object.getPrototypeOf(TodosItemUI)).call(this, props));
 
         _this.setClassName = _this.setClassName.bind(_this);
         _this.setVisibility = _this.setVisibility.bind(_this);
         return _this;
     }
 
-    _createClass(TodosItem, [{
+    _createClass(TodosItemUI, [{
         key: 'setClassName',
         value: function setClassName(completed) {
             var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'item';
@@ -22529,13 +22593,21 @@ var TodosItem = function (_React$Component) {
         }
     }]);
 
-    return TodosItem;
+    return TodosItemUI;
 }(_react2.default.Component);
 
-exports.default = TodosItem;
+exports.default = TodosItemUI;
+
+
+TodosItemUI.propTypes = {
+    completed: _propTypes2.default.bool.isRequired,
+    currentFilter: _propTypes2.default.string.isRequired,
+    id: _propTypes2.default.number.isRequired,
+    value: _propTypes2.default.string.isRequired
+};
 
 /***/ }),
-/* 90 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22557,7 +22629,7 @@ var toggleTodosAction = function toggleTodosAction(id) {
 exports.default = toggleTodosAction;
 
 /***/ }),
-/* 91 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22579,183 +22651,6 @@ var deleteTodosAction = function deleteTodosAction(id) {
 exports.default = deleteTodosAction;
 
 /***/ }),
-/* 92 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRedux = __webpack_require__(4);
-
-var _TodosDeleteAllCompletedButton = __webpack_require__(93);
-
-var _TodosDeleteAllCompletedButton2 = _interopRequireDefault(_TodosDeleteAllCompletedButton);
-
-var _TodosFilters = __webpack_require__(95);
-
-var _TodosFilters2 = _interopRequireDefault(_TodosFilters);
-
-var _TodosCounter = __webpack_require__(97);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var TodosBar = function (_React$Component) {
-    _inherits(TodosBar, _React$Component);
-
-    function TodosBar(props) {
-        _classCallCheck(this, TodosBar);
-
-        var _this = _possibleConstructorReturn(this, (TodosBar.__proto__ || Object.getPrototypeOf(TodosBar)).call(this, props));
-
-        _this.setVisibility = _this.setVisibility.bind(_this);
-        return _this;
-    }
-
-    _createClass(TodosBar, [{
-        key: 'setVisibility',
-        value: function setVisibility() {
-            if (this.props.numTodosItems == 0) {
-                return {
-                    display: "none"
-                };
-            }
-
-            return {
-                display: "flex"
-            };
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'div',
-                { className: 'todos-actions-bar', style: this.setVisibility() },
-                _react2.default.createElement(_TodosCounter.connectedTodosCounter, null),
-                _react2.default.createElement(_TodosFilters2.default, null),
-                _react2.default.createElement(_TodosDeleteAllCompletedButton2.default, null)
-            );
-        }
-    }]);
-
-    return TodosBar;
-}(_react2.default.Component);
-
-exports.default = (0, _reactRedux.connect)(function (state) {
-    return {
-        numTodosItems: state.todosArray.length
-    };
-}, null)(TodosBar);
-
-/***/ }),
-/* 93 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactDom = __webpack_require__(6);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-var _reactRedux = __webpack_require__(4);
-
-var _deleteAllCompletedTodosAction = __webpack_require__(94);
-
-var _deleteAllCompletedTodosAction2 = _interopRequireDefault(_deleteAllCompletedTodosAction);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var TODOS_DELETE_ALL_COMPLETED_BUTTON = 'todos-actions-bar_delete-done';
-
-var TodosDeleteAllCompletedButton = function (_React$Component) {
-    _inherits(TodosDeleteAllCompletedButton, _React$Component);
-
-    function TodosDeleteAllCompletedButton(props) {
-        _classCallCheck(this, TodosDeleteAllCompletedButton);
-
-        var _this = _possibleConstructorReturn(this, (TodosDeleteAllCompletedButton.__proto__ || Object.getPrototypeOf(TodosDeleteAllCompletedButton)).call(this, props));
-
-        _this.handlerClick = _this.handlerClick.bind(_this);
-        return _this;
-    }
-
-    _createClass(TodosDeleteAllCompletedButton, [{
-        key: 'handlerClick',
-        value: function handlerClick(event) {
-            if (event.target.className.localeCompare(TODOS_DELETE_ALL_COMPLETED_BUTTON) === 0) {
-                this.props.onDeleteAllCompletedTodos();
-            }
-        }
-    }, {
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-            _reactDom2.default.findDOMNode(this).addEventListener('click', this.handlerClick);
-        }
-    }, {
-        key: 'componentWillUnmount',
-        value: function componentWillUnmount() {
-            _reactDom2.default.findDOMNode(this).removeEventListener('click', this.handlerClick);
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-            return _react2.default.createElement(
-                'div',
-                { className: 'todos-actions-bar_delete' },
-                _react2.default.createElement(
-                    'button',
-                    { className: 'todos-actions-bar_delete-done',
-                        'aria-label': 'delete all done items' },
-                    'Clear completed'
-                )
-            );
-        }
-    }]);
-
-    return TodosDeleteAllCompletedButton;
-}(_react2.default.Component);
-
-exports.default = (0, _reactRedux.connect)(null, function (dispatch) {
-    return {
-        onDeleteAllCompletedTodos: function onDeleteAllCompletedTodos() {
-            dispatch((0, _deleteAllCompletedTodosAction2.default)());
-        }
-    };
-})(TodosDeleteAllCompletedButton);
-
-/***/ }),
 /* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -22766,15 +22661,19 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _ActionTypes = __webpack_require__(2);
+var _reactRedux = __webpack_require__(5);
 
-var deleteAllCompletedTodosAction = function deleteAllCompletedTodosAction() {
+var _TodosBarUI = __webpack_require__(95);
+
+var _TodosBarUI2 = _interopRequireDefault(_TodosBarUI);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = (0, _reactRedux.connect)(function (state) {
     return {
-        type: _ActionTypes.DELETE_ALL_COMPLETED_TODOS
+        numTodosItems: state.todosArray.length
     };
-};
-
-exports.default = deleteAllCompletedTodosAction;
+}, null)(_TodosBarUI2.default);
 
 /***/ }),
 /* 95 */
@@ -22793,15 +22692,141 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(6);
+var _propTypes = __webpack_require__(3);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _TodosFilters = __webpack_require__(96);
+
+var _TodosFilters2 = _interopRequireDefault(_TodosFilters);
+
+var _TodosCounter = __webpack_require__(99);
+
+var _TodosCounter2 = _interopRequireDefault(_TodosCounter);
+
+var _TodosDeleteAllCompletedButton = __webpack_require__(101);
+
+var _TodosDeleteAllCompletedButton2 = _interopRequireDefault(_TodosDeleteAllCompletedButton);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var TodosBarUI = function (_React$Component) {
+    _inherits(TodosBarUI, _React$Component);
+
+    function TodosBarUI(props) {
+        _classCallCheck(this, TodosBarUI);
+
+        var _this = _possibleConstructorReturn(this, (TodosBarUI.__proto__ || Object.getPrototypeOf(TodosBarUI)).call(this, props));
+
+        _this.setVisibility = _this.setVisibility.bind(_this);
+        return _this;
+    }
+
+    _createClass(TodosBarUI, [{
+        key: 'setVisibility',
+        value: function setVisibility() {
+            if (this.props.numTodosItems == 0) {
+                return {
+                    display: "none"
+                };
+            }
+
+            return {
+                display: "flex"
+            };
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'todos-actions-bar', style: this.setVisibility() },
+                _react2.default.createElement(_TodosCounter2.default, null),
+                _react2.default.createElement(_TodosFilters2.default, null),
+                _react2.default.createElement(_TodosDeleteAllCompletedButton2.default, null)
+            );
+        }
+    }]);
+
+    return TodosBarUI;
+}(_react2.default.Component);
+
+exports.default = TodosBarUI;
+
+
+TodosBarUI.propTypes = {
+    numTodosItems: _propTypes2.default.number.isRequired
+};
+
+/***/ }),
+/* 96 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _reactRedux = __webpack_require__(5);
+
+var _TodosFiltersUI = __webpack_require__(97);
+
+var _TodosFiltersUI2 = _interopRequireDefault(_TodosFiltersUI);
+
+var _setFilterTodosAction = __webpack_require__(98);
+
+var _setFilterTodosAction2 = _interopRequireDefault(_setFilterTodosAction);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mapStateToProps = function mapStateToProps(state) {
+    return {
+        currentFilter: state.currentFilter
+    };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+    return {
+        onFilterTodos: function onFilterTodos(filterName) {
+            dispatch((0, _setFilterTodosAction2.default)(filterName));
+        }
+    };
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_TodosFiltersUI2.default);
+
+/***/ }),
+/* 97 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(7);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _reactRedux = __webpack_require__(4);
+var _propTypes = __webpack_require__(3);
 
-var _setFilterTodosAction = __webpack_require__(96);
-
-var _setFilterTodosAction2 = _interopRequireDefault(_setFilterTodosAction);
+var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _FilterTypes = __webpack_require__(35);
 
@@ -22813,13 +22838,13 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var TodosFilters = function (_React$Component) {
-    _inherits(TodosFilters, _React$Component);
+var TodosFiltersUI = function (_React$Component) {
+    _inherits(TodosFiltersUI, _React$Component);
 
-    function TodosFilters(props) {
-        _classCallCheck(this, TodosFilters);
+    function TodosFiltersUI(props) {
+        _classCallCheck(this, TodosFiltersUI);
 
-        var _this = _possibleConstructorReturn(this, (TodosFilters.__proto__ || Object.getPrototypeOf(TodosFilters)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (TodosFiltersUI.__proto__ || Object.getPrototypeOf(TodosFiltersUI)).call(this, props));
 
         _this.handlerClick = _this.handlerClick.bind(_this);
         _this.changeFilter = _this.changeFilter.bind(_this);
@@ -22827,7 +22852,7 @@ var TodosFilters = function (_React$Component) {
         return _this;
     }
 
-    _createClass(TodosFilters, [{
+    _createClass(TodosFiltersUI, [{
         key: 'handlerClick',
         value: function handlerClick(event) {
             switch (event.target.className) {
@@ -22941,27 +22966,19 @@ var TodosFilters = function (_React$Component) {
         }
     }]);
 
-    return TodosFilters;
+    return TodosFiltersUI;
 }(_react2.default.Component);
 
-var mapStateToProps = function mapStateToProps(state) {
-    return {
-        currentFilter: state.currentFilter
-    };
-};
+exports.default = TodosFiltersUI;
 
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-    return {
-        onFilterTodos: function onFilterTodos(filterName) {
-            dispatch((0, _setFilterTodosAction2.default)(filterName));
-        }
-    };
-};
 
-exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(TodosFilters);
+TodosFiltersUI.propTypes = {
+    onFilterTodos: _propTypes2.default.func.isRequired,
+    currentFilter: _propTypes2.default.string.isRequired
+};
 
 /***/ }),
-/* 96 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22983,7 +23000,7 @@ var setFilterTodosAction = function setFilterTodosAction(filterName) {
 exports.default = setFilterTodosAction;
 
 /***/ }),
-/* 97 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22992,7 +23009,31 @@ exports.default = setFilterTodosAction;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.connectedTodosCounter = exports.TodosCounter = undefined;
+
+var _reactRedux = __webpack_require__(5);
+
+var _TodosCounterUI = __webpack_require__(100);
+
+var _TodosCounterUI2 = _interopRequireDefault(_TodosCounterUI);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = (0, _reactRedux.connect)(function (state) {
+    return {
+        todosArray: state.todosArray
+    };
+}, null)(_TodosCounterUI2.default);
+
+/***/ }),
+/* 100 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -23000,7 +23041,9 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRedux = __webpack_require__(4);
+var _propTypes = __webpack_require__(3);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -23010,19 +23053,19 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var TodosCounter = exports.TodosCounter = function (_React$Component) {
-    _inherits(TodosCounter, _React$Component);
+var TodosCounterUI = function (_React$Component) {
+    _inherits(TodosCounterUI, _React$Component);
 
-    function TodosCounter(props) {
-        _classCallCheck(this, TodosCounter);
+    function TodosCounterUI(props) {
+        _classCallCheck(this, TodosCounterUI);
 
-        var _this = _possibleConstructorReturn(this, (TodosCounter.__proto__ || Object.getPrototypeOf(TodosCounter)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (TodosCounterUI.__proto__ || Object.getPrototypeOf(TodosCounterUI)).call(this, props));
 
         _this.getNumOfActiveItems = _this.getNumOfActiveItems.bind(_this);
         return _this;
     }
 
-    _createClass(TodosCounter, [{
+    _createClass(TodosCounterUI, [{
         key: 'getNumOfActiveItems',
         value: function getNumOfActiveItems() {
             var num = 0;
@@ -23047,14 +23090,157 @@ var TodosCounter = exports.TodosCounter = function (_React$Component) {
         }
     }]);
 
-    return TodosCounter;
+    return TodosCounterUI;
 }(_react2.default.Component);
 
-var connectedTodosCounter = exports.connectedTodosCounter = (0, _reactRedux.connect)(function (state) {
+exports.default = TodosCounterUI;
+
+
+TodosCounterUI.propTypes = {
+    todosArray: _propTypes2.default.array.isRequired
+};
+
+/***/ }),
+/* 101 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _reactRedux = __webpack_require__(5);
+
+var _TodosDeleteAllCompletedButtonUI = __webpack_require__(102);
+
+var _TodosDeleteAllCompletedButtonUI2 = _interopRequireDefault(_TodosDeleteAllCompletedButtonUI);
+
+var _deleteAllCompletedTodosAction = __webpack_require__(103);
+
+var _deleteAllCompletedTodosAction2 = _interopRequireDefault(_deleteAllCompletedTodosAction);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = (0, _reactRedux.connect)(null, function (dispatch) {
     return {
-        todosArray: state.todosArray
+        onDeleteAllCompletedTodos: function onDeleteAllCompletedTodos() {
+            dispatch((0, _deleteAllCompletedTodosAction2.default)());
+        }
     };
-}, null)(TodosCounter);
+})(_TodosDeleteAllCompletedButtonUI2.default);
+
+/***/ }),
+/* 102 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(7);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+var _propTypes = __webpack_require__(3);
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var TODOS_DELETE_ALL_COMPLETED_BUTTON = 'todos-actions-bar_delete-done';
+
+var TodosDeleteAllCompletedButtonUI = function (_React$Component) {
+    _inherits(TodosDeleteAllCompletedButtonUI, _React$Component);
+
+    function TodosDeleteAllCompletedButtonUI(props) {
+        _classCallCheck(this, TodosDeleteAllCompletedButtonUI);
+
+        var _this = _possibleConstructorReturn(this, (TodosDeleteAllCompletedButtonUI.__proto__ || Object.getPrototypeOf(TodosDeleteAllCompletedButtonUI)).call(this, props));
+
+        _this.handlerClick = _this.handlerClick.bind(_this);
+        return _this;
+    }
+
+    _createClass(TodosDeleteAllCompletedButtonUI, [{
+        key: 'handlerClick',
+        value: function handlerClick(event) {
+            if (event.target.className.localeCompare(TODOS_DELETE_ALL_COMPLETED_BUTTON) === 0) {
+                this.props.onDeleteAllCompletedTodos();
+            }
+        }
+    }, {
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            _reactDom2.default.findDOMNode(this).addEventListener('click', this.handlerClick);
+        }
+    }, {
+        key: 'componentWillUnmount',
+        value: function componentWillUnmount() {
+            _reactDom2.default.findDOMNode(this).removeEventListener('click', this.handlerClick);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            return _react2.default.createElement(
+                'div',
+                { className: 'todos-actions-bar_delete' },
+                _react2.default.createElement(
+                    'button',
+                    { className: 'todos-actions-bar_delete-done',
+                        'aria-label': 'delete all done items' },
+                    'Clear completed'
+                )
+            );
+        }
+    }]);
+
+    return TodosDeleteAllCompletedButtonUI;
+}(_react2.default.Component);
+
+exports.default = TodosDeleteAllCompletedButtonUI;
+
+
+TodosDeleteAllCompletedButtonUI.propTypes = {
+    onDeleteAllCompletedTodos: _propTypes2.default.func.isRequired
+};
+
+/***/ }),
+/* 103 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _ActionTypes = __webpack_require__(2);
+
+var deleteAllCompletedTodosAction = function deleteAllCompletedTodosAction() {
+    return {
+        type: _ActionTypes.DELETE_ALL_COMPLETED_TODOS
+    };
+};
+
+exports.default = deleteAllCompletedTodosAction;
 
 /***/ })
 /******/ ]);

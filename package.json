@@ -36,7 +36,8 @@
     "redux": "^3.7.2",
     "wallaby-webpack": "^3.9.4",
     "webpack": "^3.10.0",
-    "webpack-stream": "^4.0.0"
+    "webpack-stream": "^4.0.0",
+    "prop-types": "latest"
   },
   "peerDependencies": {
     "mocha": "^3.0.0-2"

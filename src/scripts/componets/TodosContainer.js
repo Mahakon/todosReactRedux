@@ -1,8 +1,8 @@
 import React from 'react'
 
-import AddTodos from './todos-add/AddTodos'
-import TodosList from './todos-list/TodosList'
-import TodosBar from './todos-bar/TodosBar'
+import AddTodos from './containers/todos-add/AddTodos'
+import TodosList from './containers/todos-list/TodosList'
+import TodosBar from './containers/todos-bar/TodosBar'
 
 export default class TodosContainer extends React.Component {
     render() {

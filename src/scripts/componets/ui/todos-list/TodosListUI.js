@@ -1,17 +1,14 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
-import TodosItem from './TodosItem'
-
-import toggleTodosAction from '../../modules/actions/toggleTodosAction'
-import deleteTodosAction from '../../modules/actions/deteleTodosAction'
+import TodosItemUI from './TodosItemUI'
 
 const TODOS_DELETE_BUTTON_CLASS_NAME = "todos-item_delete";
 const TODOS_CHECKBOX_CLASS_NAME = ["todos-item_done-mark",
     "todos-item_undone-mark"];
 
-class TodosList extends React.Component {
+export default class TodosListUI extends React.Component {
     constructor(props) {
         super(props);
         this.handlerClick = this.handlerClick.bind(this);
@@ -46,7 +43,7 @@ class TodosList extends React.Component {
         return (
             <div className="todos-list">
                 {this.props.todosArray.map((todosElement) =>
-                    <TodosItem key={todosElement.id}
+                    <TodosItemUI key={todosElement.id}
                                completed={todosElement.completed}
                                currentFilter=
                                    {this.props.currentFilter}
@@ -60,21 +57,9 @@ class TodosList extends React.Component {
 
 }
 
-const mapStateToProps = state => ({
-    todosArray: state.todosArray,
-    currentFilter: state.currentFilter
-});
-
-const mapDispatchToProps = dispatch => ({
-    onDeleteTodos(id) {
-        dispatch(deleteTodosAction(id))
-    },
-    onToggleTodos(id) {
-        dispatch(toggleTodosAction(id))
-    }
-});
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(TodosList)
+TodosListUI.propTypes = {
+    onToggleTodos: PropTypes.func.isRequired,
+    onDeleteTodos: PropTypes.func.isRequired,
+    todosArray: PropTypes.array.isRequired,
+    currentFilter: PropTypes.string.isRequired
+};

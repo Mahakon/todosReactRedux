@@ -1,14 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { connect } from 'react-redux'
-
-import setFilterTodosAction from
-    '../../modules/actions/setFilterTodosAction'
+import PropTypes from 'prop-types'
 
 import {FILTER_COMPLETED, FILTER_ACTIVE, FILTER_ALL} from
-        '../../constants/FilterTypes'
+        '../../../constants/FilterTypes'
 
-class TodosFilters extends React.Component{
+
+export default class TodosFiltersUI extends React.Component{
     constructor(props) {
         super(props);
         this.handlerClick = this.handlerClick.bind(this);
@@ -123,17 +121,7 @@ class TodosFilters extends React.Component{
 
 }
 
-const mapStateToProps = state => ({
-    currentFilter: state.currentFilter
-});
-
-const mapDispatchToProps = dispatch => ({
-    onFilterTodos(filterName) {
-        dispatch(setFilterTodosAction(filterName))
-    }
-});
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(TodosFilters)
+TodosFiltersUI.propTypes = {
+    onFilterTodos: PropTypes.func.isRequired,
+    currentFilter: PropTypes.string.isRequired
+};

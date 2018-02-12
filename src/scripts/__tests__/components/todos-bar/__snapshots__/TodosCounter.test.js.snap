@@ -5,6 +5,6 @@ exports[`<TodosCounter/> snap-shot test Renders correct props 1`] = `
   aria-label="number of undone items"
   className="todos-actions-bar_counter-undone"
 >
-  0 items left
+  2 items left
 </div>
 `;

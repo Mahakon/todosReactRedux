@@ -21551,7 +21551,8 @@ var saver = function saver(store) {
 var storeFactory = function storeFactory() {
     var initialState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : stateData;
     var appReducer = arguments[1];
-    return (0, _redux.applyMiddleware)(logger, saver)(_redux.createStore)(appReducer, localStorage['redux-store'] ? JSON.parse(localStorage['redux-store']) : initialState);
+    return (0, _redux.applyMiddleware)(logger, saver)(_redux.createStore)(appReducer, localStorage['redux-store'] ? JSON.parse(localStorage['redux-store']) : initialState /*?*/
+    );
 };
 
 exports.default = storeFactory;

@@ -241,7 +241,7 @@ describe('testTodosReducer', () => {
                 {
                     id: 3456,
                     text: "gdfg1",
-                    completed: false
+                    completed: true
                 }
             ]
         ];

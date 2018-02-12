@@ -8,7 +8,8 @@ import FilterPoolReducers from
 import setFilterTodosAction from
         '../../../modules/actions/setFilterTodosAction'
 
-import {FILTER_COMPLETED, FILTER_ACTIVE, FILTER_ALL} from '../../../constants/FilterTypes'
+import {FILTER_COMPLETED, FILTER_ACTIVE, FILTER_ALL} from
+        '../../../constants/FilterTypes'
 
 const testFilterReducer = (reducer) => {
     let statesBefore = [
@@ -44,5 +45,9 @@ describe('testFilterReducer', () => {
     it('should be new state', () => {
         testFilterReducer(FilterPoolReducers)
     });
+
+    it('jfhsdj', () => {
+
+    })
 
 });

@@ -10,8 +10,9 @@ module.exports = function (wallaby) {
         ],
 
         env: {
-            type: 'node',
-            runner: 'node'
+             type: 'node',
+             runner: 'node'
+            //kind: "chrome"
         },
 
         compilers: {
